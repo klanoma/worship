@@ -1,0 +1,24 @@
+- if user_signed_in?
+  %li.dash
+    %a.active{:href => root_path}
+      %span Dashboard
+  %li.cal
+    %a{:href => home_calendar_path}
+      %span Calendar
+  %li.forms
+    %a{:href => logs_list_path}
+      %span Worship Logs
+  %li.contacts
+    %a{:href => home_users_path}
+      %span Users
+  %li.typo
+    %a{:href => public_contact_path}
+      %span Support
+
+- else
+  %li.help
+    %a{:href => public_help_path}
+      %span Help
+  %li.typo
+    %a{:href => public_contact_path}
+      %span Contact Admin

@@ -1,2 +1,38 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+.title
+  %h5 Dashboard
+  
+/ Statistics
+.stats
+  %ul
+    %li
+      %a.count.grey{:href => "#", :title => ""} 302
+      %span
+        worship
+        %br logs
+    %li
+      %a.count.grey{:href => "#", :title => ""} 200
+      %span weeks
+    %li
+      %a.count.grey{:href => "#", :title => ""} 3.8
+      %span years
+    %li.last
+      %a.count.grey{:href => "#", :title => ""} 3
+      %span users
+  .fix
+
+/ Full width tabs
+.widget
+  %ul.tabs
+    %li
+      %a{:href => "#tab3"} Tab Active
+    %li
+      %a{:href => "#tab4"} Tab Inactive
+  .tab_container
+    #tab3.tab_content
+      %h4.aligncenter.red.pt10 Nice looking tables with custom widgets, file manager and contact list!
+      %p
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales dolor eget massa faucibus id porttitor velit mollis. Donec quis felis purus, nec feugiat felis. Vivamus auctor, augue ac ullamcorper blandit, libero eros rhoncus libero, tempus pulvinar ante est quis sapien. In placerat velit non nunc pharetra malesuada quis sed mi. Maecenas quis felis tellus.
+      %p
+        Ut malesuada dictum rutrum. Cras enim risus, porta vel rhoncus sed, lobortis at libero. Maecenas dapibus, leo in pharetra euismod, justo turpis commodo augue, vel fringilla turpis mauris quis magna. Etiam vulputate diam a massa viverra at malesuada erat tristique. Pellentesque orci dolor, cursus vitae gravida sed, mattis iaculis orci. Cras mollis adipiscing metus, rhoncus facilisis arcu sodales sit amet.
+    #tab4.tab_content This tab is active now
+  .fix

@@ -1,0 +1,12 @@
+- if user_signed_in?
+  %li.iAdd
+    %a{:href => logs_add_path}
+      %span Add Log
+  /
+  %li.iUser
+    %a{:href => home_users_path}
+      %span Add User
+
+  %li.iSearch
+    %a{:href => home_search_path}
+      %span Search Logs
