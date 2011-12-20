@@ -1,4 +1,26 @@
 Worship::Application.routes.draw do
+  get "public/contact"
+
+  get "public/help"
+
+  get "home/index"
+
+  get "home/settings"
+
+  get "home/search"
+
+  get "home/users"
+
+  get "home/calendar"
+
+  get "logs/add"
+
+  get "logs/delete"
+
+  get "logs/list"
+
+  root :to => "home#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

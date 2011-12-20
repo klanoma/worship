@@ -1,0 +1,69 @@
+!!!
+%html
+  %head
+    %title Worship Log
+    %meta{:charset => "utf-8"}
+    %meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
+    %meta{:name => "description", :content =>"Worship Log provides a searchable"}
+    %meta{:name => "keywords", :content => "worship database, worship log, service log, church archive, worship archive, liturgy, litergical, paster's notebook, preacher's archive, church administrator archive, search sermon, find sermons"}
+    %meta{:name => "author", :content => "William Youmans"}
+    %link{:rel => "shortcut icon", :href => "/favicon.ico"}
+    %link{:rel => "apple-touch-icon", :href => "/apple-touch-icon.png"}
+    %link{:rel => "apple-touch-icon", :sizes => "72x72", :href => "/apple-touch-icon-72x72.png"}
+    %link{:rel => "apple-touch-icon", :sizes => "114x114", :href => "/apple-touch-icon-114x114.png"}
+    %link{:href => "http://fonts.googleapis.com/css?family=Cuprum", :rel => "stylesheet", :type => "text/css"}
+    = stylesheet_link_tag :application
+    = javascript_include_tag :application
+    = csrf_meta_tags
+
+  %body{:class => params[:controller]}
+
+    / navigation
+    #topNav
+      .fixed
+        .wrapper
+          .welcome
+
+            - if user_signed_in?
+              %a{:href => edit_user_registration_path}
+                = image_tag("brain/userPic.png")
+              %span Howdy, Username!
+            - else
+              %span Welcome to Worship Log
+
+          .userNav
+            %ul
+              = render 'shared/main_navigation'
+          .fix
+  
+    / Header
+    #header.wrapper
+      .logo
+        %a{:href => root_path}
+          = image_tag("template/logoLarge.png")
+      .middleNav
+        %ul
+          = render 'shared/secondary_navigation'
+
+      .fix
+    / Content wrapper
+    .wrapper
+
+      / Left navigation
+      .leftNav
+        %ul#menu
+          = render 'shared/left_navigation'
+
+      / Content
+      .content
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+
+        = yield
+
+      .fix
+
+    #footer
+      .wrapper
+        %span &copy; 2011 Worship Log
