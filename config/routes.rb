@@ -1,4 +1,6 @@
 Worship::Application.routes.draw do
+  devise_for :users
+
   get "public/contact"
 
   get "public/help"
