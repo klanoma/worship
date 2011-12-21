@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221053222) do
+ActiveRecord::Schema.define(:version => 20111221053442) do
 
   create_table "bible_books", :force => true do |t|
     t.string    "title",        :limit => 22, :default => "", :null => false
@@ -75,6 +75,16 @@ ActiveRecord::Schema.define(:version => 20111221053222) do
   end
 
   add_index "hymns", ["hymnal_id"], :name => "index_hymns_on_hymnal_id"
+
+  create_table "services", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "user_id"
+    t.integer  "sort"
+    t.datetime "started_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "states", :force => true do |t|
     t.string   "name"
