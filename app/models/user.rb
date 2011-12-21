@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many:services
+  has_many:volunteers
 
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable, :trackable, :validatable, :lockable
 
