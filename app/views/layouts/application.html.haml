@@ -28,7 +28,7 @@
             - if user_signed_in?
               %a{:href => edit_user_registration_path}
                 = image_tag("brain/userPic.png")
-              %span Howdy, Username!
+              %span Howdy, #{current_user.email}!
             - else
               %span Welcome to Worship Log
 

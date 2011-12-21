@@ -11,7 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111220062526) do
+ActiveRecord::Schema.define(:version => 20111221040205) do
+
+  create_table "bible_books", :force => true do |t|
+    t.string   "title"
+    t.string   "abbreviation"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bible_translations", :force => true do |t|
+    t.string   "title"
+    t.string   "abbreviation"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bible_verses", :force => true do |t|
+    t.integer  "bible_translation_id"
+    t.integer  "bible_book_id"
+    t.integer  "chapter"
+    t.integer  "verse"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bible_verses", ["bible_book_id"], :name => "index_bible_verses_on_bible_book_id"
+  add_index "bible_verses", ["bible_translation_id"], :name => "index_bible_verses_on_bible_translation_id"
+  add_index "bible_verses", ["chapter"], :name => "index_bible_verses_on_chapter"
+  add_index "bible_verses", ["verse"], :name => "index_bible_verses_on_verse"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
