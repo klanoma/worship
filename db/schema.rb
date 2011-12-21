@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221050852) do
+ActiveRecord::Schema.define(:version => 20111221053222) do
 
   create_table "bible_books", :force => true do |t|
     t.string    "title",        :limit => 22, :default => "", :null => false
@@ -76,6 +76,13 @@ ActiveRecord::Schema.define(:version => 20111221050852) do
 
   add_index "hymns", ["hymnal_id"], :name => "index_hymns_on_hymnal_id"
 
+  create_table "states", :force => true do |t|
+    t.string   "name"
+    t.string   "abbreviation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
@@ -101,5 +108,19 @@ ActiveRecord::Schema.define(:version => 20111221050852) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "volunteers", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "address"
+    t.string   "city"
+    t.integer  "state_id"
+    t.string   "zip_code"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

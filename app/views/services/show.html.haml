@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @service.title
+%p
+  %b Description:
+  = @service.description
+%p
+  %b User:
+  = @service.user_id
+%p
+  %b Sort:
+  = @service.sort
+%p
+  %b Started at:
+  = @service.started_at
+
+= link_to 'Edit', edit_service_path(@service)
+\|
+= link_to 'Back', services_path
