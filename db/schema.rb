@@ -11,38 +11,48 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221040205) do
+ActiveRecord::Schema.define(:version => 20111221050001) do
 
   create_table "bible_books", :force => true do |t|
-    t.string   "title"
-    t.string   "abbreviation"
-    t.string   "slug"
+    t.string    "title",        :limit => 22, :default => "", :null => false
+    t.string    "abbreviation", :limit => 8,  :default => "", :null => false
+    t.timestamp "updated_at",                                 :null => false
+    t.timestamp "created_at",                                 :null => false
+  end
+
+  create_table "bible_passages", :force => true do |t|
+    t.integer  "bible_verse_id"
+    t.integer  "verse_count"
+    t.integer  "sort"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "bible_passages", ["bible_verse_id"], :name => "index_bible_passages_on_bible_verse_id"
 
   create_table "bible_translations", :force => true do |t|
-    t.string   "title"
-    t.string   "abbreviation"
-    t.string   "slug"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "title",        :limit => 100, :default => "", :null => false
+    t.string    "abbreviation", :limit => 4,   :default => "", :null => false
+    t.timestamp "updated_at",                                  :null => false
+    t.timestamp "created_at",                                  :null => false
   end
+
+  add_index "bible_translations", ["abbreviation"], :name => "lds_org", :unique => true
 
   create_table "bible_verses", :force => true do |t|
-    t.integer  "bible_translation_id"
-    t.integer  "bible_book_id"
-    t.integer  "chapter"
-    t.integer  "verse"
-    t.text     "text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean   "bible_translation_id",              :default => false, :null => false
+    t.integer   "bible_book_id",        :limit => 1, :default => 0,     :null => false
+    t.integer   "chapter",              :limit => 1, :default => 0,     :null => false
+    t.integer   "verse",                :limit => 1, :default => 0,     :null => false
+    t.text      "text",                                                 :null => false
+    t.timestamp "updated_at",                                           :null => false
+    t.timestamp "created_at",                                           :null => false
   end
 
-  add_index "bible_verses", ["bible_book_id"], :name => "index_bible_verses_on_bible_book_id"
-  add_index "bible_verses", ["bible_translation_id"], :name => "index_bible_verses_on_bible_translation_id"
-  add_index "bible_verses", ["chapter"], :name => "index_bible_verses_on_chapter"
-  add_index "bible_verses", ["verse"], :name => "index_bible_verses_on_verse"
+  add_index "bible_verses", ["bible_book_id"], :name => "verses_book_id"
+  add_index "bible_verses", ["bible_translation_id"], :name => "verses_volume_id"
+  add_index "bible_verses", ["chapter", "verse"], :name => "verses_chapter_verse"
+  add_index "bible_verses", ["chapter"], :name => "chapter"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
