@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221050001) do
+ActiveRecord::Schema.define(:version => 20111221050852) do
 
   create_table "bible_books", :force => true do |t|
     t.string    "title",        :limit => 22, :default => "", :null => false
@@ -53,6 +53,28 @@ ActiveRecord::Schema.define(:version => 20111221050001) do
   add_index "bible_verses", ["bible_translation_id"], :name => "verses_volume_id"
   add_index "bible_verses", ["chapter", "verse"], :name => "verses_chapter_verse"
   add_index "bible_verses", ["chapter"], :name => "chapter"
+
+  create_table "hymnals", :force => true do |t|
+    t.string   "name"
+    t.string   "editor"
+    t.integer  "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "hymns", :force => true do |t|
+    t.integer  "number"
+    t.string   "name"
+    t.string   "tune"
+    t.string   "composer"
+    t.string   "copyright"
+    t.integer  "year"
+    t.integer  "hymnal_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hymns", ["hymnal_id"], :name => "index_hymns_on_hymnal_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
