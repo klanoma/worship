@@ -1,4 +1,6 @@
 Worship::Application.routes.draw do
+  resources :volunteers
+
   resources :services
 
   devise_for :users
