@@ -6,16 +6,30 @@
  *= require_tree . 
 */
 
-#flash_notice, #flash_alert {
+#flash_notice, #flash_alert, #error_explanation {
   padding: 5px 8px;
   margin: 0 0 10px 0;
 }
+
+#error_explanation{
+  margin: 10px 0;
+}
+
+#error_explanation h2{
+  font-weight: normal;
+  font-size: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+}
+#error_explanation ul{
+  margin-left: 20px;
+  list-style: circle;
+}
+
 #flash_notice {
   background-color: #CFC;
   border: solid 1px #6C6;
 }
-#flash_alert {
+#flash_alert, #error_explanation{
   background-color: #FCC;
   border: solid 1px #C66;
 }
-
