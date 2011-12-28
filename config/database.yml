@@ -37,6 +37,6 @@ production:
   reconnect: false
   database: worship_production
   pool: 5
-  username: root
-  password:
+  username: worship
+  password: 3q9GS471nf97NTTBBN
   host: localhost
