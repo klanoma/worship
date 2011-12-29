@@ -63,3 +63,5 @@ tmp/*
 
 # vim artifacts
 **.swp
+
+.rvmrc
