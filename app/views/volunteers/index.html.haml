@@ -1,38 +1,30 @@
 .title
-  %h5 Listing volunteers
-
-%table
-  %tr
-    %th First name
-    %th Last name
-    %th Email
-    %th Phone
-    %th Address
-    %th City
-    %th State
-    %th Zip code
-    %th Notes
-    %th User
-    %th
-    %th
-    %th
-
-  - @volunteers.each do |volunteer|
-    %tr
-      %td= volunteer.first_name
-      %td= volunteer.last_name
-      %td= volunteer.email
-      %td= volunteer.phone
-      %td= volunteer.address
-      %td= volunteer.city
-      %td= volunteer.state_id
-      %td= volunteer.zip_code
-      %td= volunteer.notes
-      %td= volunteer.user_id
-      %td= link_to 'Show', volunteer
-      %td= link_to 'Edit', edit_volunteer_path(volunteer)
-      %td= link_to 'Delete', volunteer, :confirm => 'Are you sure you want to delete this volunteer? This action cannot be undone.', :method => :delete
-
-%br
-
-= link_to 'New Volunteer', new_volunteer_path
+  %h5 Manage Volunteers
+.table.first
+  .head
+    %h5.iAdd
+      = link_to 'Add Volunteer', new_volunteer_path, :class => 'button greenBtn'
+  %table.display#volunteers
+    %thead
+      %tr
+        %th First name
+        %th Last name
+        %th Email
+        %th Phone
+        %th Address
+        %th City
+        %th
+        %th
+        %th
+    %tbody
+      - @volunteers.each do |volunteer|
+        %tr
+          %td= volunteer.first_name
+          %td= volunteer.last_name
+          %td= volunteer.email
+          %td= volunteer.phone
+          %td= volunteer.address
+          %td= volunteer.city
+          %td= link_to 'Show', volunteer
+          %td= link_to 'Edit', edit_volunteer_path(volunteer)
+          %td= link_to 'Delete', volunteer, :confirm => 'Are you sure you want to delete this volunteer? This action cannot be undone.', :method => :delete
