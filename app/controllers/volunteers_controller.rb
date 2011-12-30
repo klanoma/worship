@@ -3,7 +3,7 @@ class VolunteersController < ApplicationController
   # GET /volunteers
   # GET /volunteers.json
   def index
-    @volunteers = Volunteer.all
+    @volunteers = Volunteer.find_all_by_user_id(current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,6 +44,7 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.new(params[:volunteer])
 
     respond_to do |format|
+      @volunteer.user_id = current_user.id
       if @volunteer.save
         format.html { redirect_to @volunteer, notice: 'Volunteer was successfully created.' }
         format.json { render json: @volunteer, status: :created, location: @volunteer }
@@ -60,6 +61,7 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.find(params[:id])
 
     respond_to do |format|
+      @volunteer.user_id = current_user.id
       if @volunteer.update_attributes(params[:volunteer])
         format.html { redirect_to @volunteer, notice: 'Volunteer was successfully updated.' }
         format.json { head :ok }

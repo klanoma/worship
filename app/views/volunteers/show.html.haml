@@ -1,34 +1,25 @@
-
-%p
-  %b First name:
-  = @volunteer.first_name
-%p
-  %b Last name:
-  = @volunteer.last_name
-%p
-  %b Email:
-  = @volunteer.email
-%p
-  %b Phone:
-  = @volunteer.phone
-%p
-  %b Address:
-  = @volunteer.address
-%p
-  %b City:
-  = @volunteer.city
-%p
-  %b State:
-  = @volunteer.state_id
-%p
-  %b Zip code:
-  = @volunteer.zip_code
-%p
-  %b Notes:
-  = @volunteer.notes
-%p
-  %b User:
-  = @volunteer.user_id
+.title
+  %h5 View Volunteer
+.widget.first
+  .head
+    %h5.iUser2 #{@volunteer.first_name} #{@volunteer.last_name}
+  %p
+    %b Address:
+    %br
+    = @volunteer.address
+    %br
+    = "#{@volunteer.city} #{@volunteer.state.name}, #{@volunteer.zip_code}"
+  %p
+    %b Email:
+    = @volunteer.email
+  %p
+    %b Phone:
+    = @volunteer.phone
+  %p
+    %b Notes:
+    = @volunteer.notes
+  %p
+    %b Volunteer History Table?
 
 = link_to 'Edit', edit_volunteer_path(@volunteer)
 \|

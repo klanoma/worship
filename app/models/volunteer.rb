@@ -6,7 +6,7 @@ class Volunteer < ActiveRecord::Base
   #validation
   validates :first_name, :last_name, presence: true
   validates :email, allow_blank: true, format: {
-    with: %r{/\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/}i,
+    with: /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i,
     message: 'must be a valid'
   }
 end
