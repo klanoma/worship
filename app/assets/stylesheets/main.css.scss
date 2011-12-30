@@ -574,12 +574,12 @@ html ul.tabs li.activeTab a { color: #797979; }
 
 .itemDisabled { color: #b7b7b7; }
 
-.rowElem { clear: both; border-top: 1px solid #e7e7e7; padding: 10px 14px; position: relative; }
+.rowElem { clear: both; padding: 4px 14px; position: relative; }
 .rowElem:first-child { border-top: none; }
 
-.formRight { float: right; width: 528px; margin: 12px 12px 12px 0px; }
+.formRight { float: right; width: 528px; margin: 0 12px 0 0; }
 .formBottom { /*width: 688px;*/ margin: 12px 12px 12px 0; }
-.rowElem > label { padding: 15px 0; width: 130px; }
+.rowElem > label, .rowElem .field_with_errors > label { padding: 3px 0 0 0; width: 130px; }
 .rowElem .topLabel { padding: 5px 12px 12px 0; }
 
 #valid input { position: relative; }
@@ -593,7 +593,7 @@ html ul.tabs li.activeTab a { color: #797979; }
 .mainForm input[type=text]:hover, .mainForm input[type=password]:hover, .mainForm textarea:hover { background: #fcfcfc; border: 1px solid #d1d1d1; }
 .mainForm input[type=text]:focus, .mainForm input[type=password]:focus, .mainForm textarea:focus { border: 1px solid #bbc1c9; background: #fff; }
 
-.submitForm { float: right; margin: 1px 14px 22px 14px; }
+.submitForm { float: right; margin: 1px 0 22px 14px; }
 
 .jqTransformInputWrapper_hover input{ background: #f6f6f6; }
 .jqTransformInputWrapper_focus input { background: #f6f6f6; border: 1px solid #cad1d4; }
@@ -672,7 +672,8 @@ a.jqTransformChecked { background-position: center bottom;} /* Checked - Used fo
 
 .nNote { cursor: pointer; clear: both; margin: 20px 0px 20px 0px; width: 100%; }
 .nNote strong { margin-right: 5px; }
-.nNote p { font-size: 11px; padding: 10px 25px 10px 54px; margin: 0px; color: #565656; }
+.nNote p, .nNote div { font-size: 11px; padding: 10px 25px 10px 54px; margin: 0px; color: #565656; }
+.nNote ul{ list-style: disc; margin-left: 15px; }
 .nMessage p { font-size: 11px; }
 .nWarning { background: #ffe9ad image_url("brain/icons/notifications/error.png") no-repeat 15px center; border: 1px solid #eac572; color: #826200; }
 .nSuccess { background: #effeb9 image_url("brain/icons/notifications/accept.png") no-repeat 15px center; border: 1px solid #c1d779; color: #3C5A01; }
