@@ -49,5 +49,6 @@
       .formRight
         = f.text_area :notes
     .rowElem
+      = link_to 'Back', volunteers_path, :class => 'button blueBtn'
       = f.submit 'Save', :class => 'greenBtn submitForm'
       .fix
