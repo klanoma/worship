@@ -1,4 +1,7 @@
 $(function() {
+  //===== Main nav =====//
+  var current_controller = $("body").attr("id");
+  $("#menu li." + current_controller + " a").addClass("active");
 
   //===== Alert windows =====//
 

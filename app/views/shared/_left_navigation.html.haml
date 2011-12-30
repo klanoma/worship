@@ -1,17 +1,17 @@
 - if user_signed_in?
-  %li.dash
-    %a.active{:href => root_path}
+  %li.dash.home
+    %a{:href => root_path}
       %span Dashboard
-  %li.cal
+  %li.cal.calendar
     %a{:href => "#"}
       %span Calendar
-  %li.forms
+  %li.forms.services
     %a{:href => services_path}
       %span Worship Logs
-  %li.contacts
+  %li.contacts.volunteers
     %a{:href => volunteers_path}
       %span Volunteers
-  %li.typo
+  %li.typo.public
     %a{:href => public_contact_path}
       %span Support
 
