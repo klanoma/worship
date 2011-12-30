@@ -6,7 +6,6 @@ class CreateServices < ActiveRecord::Migration
       t.integer :user_id
       t.integer :sort
       t.datetime :started_at
-
       t.timestamps
     end
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221065850) do
+ActiveRecord::Schema.define(:version => 20111230044346) do
 
   create_table "bible_books", :force => true do |t|
     t.string    "title",        :limit => 22, :default => "", :null => false
@@ -76,6 +76,40 @@ ActiveRecord::Schema.define(:version => 20111221065850) do
 
   add_index "hymns", ["hymnal_id"], :name => "index_hymns_on_hymnal_id"
 
+  create_table "lectionary_notes", :force => true do |t|
+    t.integer  "lectionary_week_id"
+    t.integer  "user_id"
+    t.text     "notes"
+    t.text     "bible_text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lectionary_notes", ["lectionary_week_id"], :name => "index_lectionary_notes_on_lectionary_week_id"
+  add_index "lectionary_notes", ["user_id"], :name => "index_lectionary_notes_on_user_id"
+
+  create_table "lectionary_orders", :force => true do |t|
+    t.string   "order"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lectionary_orders", ["order"], :name => "index_lectionary_orders_on_order"
+
+  create_table "lectionary_weeks", :force => true do |t|
+    t.integer  "lectionary_order_id"
+    t.string   "year"
+    t.integer  "week"
+    t.string   "scripture"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lectionary_weeks", ["week"], :name => "index_lectionary_weeks_on_week"
+  add_index "lectionary_weeks", ["year"], :name => "index_lectionary_weeks_on_year"
+
   create_table "services", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -84,6 +118,7 @@ ActiveRecord::Schema.define(:version => 20111221065850) do
     t.datetime "started_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "lectionary_week_id"
   end
 
   create_table "states", :force => true do |t|

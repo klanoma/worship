@@ -11,7 +11,6 @@ class CreateVolunteers < ActiveRecord::Migration
       t.string :zip_code
       t.text :notes
       t.integer :user_id
-
       t.timestamps
     end
   end
