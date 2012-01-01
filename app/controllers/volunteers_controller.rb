@@ -44,7 +44,7 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.new(params[:volunteer])
 
     respond_to do |format|
-      @volunteer.user_id = current_user.id
+      @volunteer.user_id = current_user.account_number
       if @volunteer.save
         format.html { redirect_to @volunteer, notice: 'Volunteer was successfully created.' }
         format.json { render json: @volunteer, status: :created, location: @volunteer }
@@ -61,7 +61,7 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.find(params[:id])
 
     respond_to do |format|
-      @volunteer.user_id = current_user.id
+      @volunteer.user_id = current_user.account_number
       if @volunteer.update_attributes(params[:volunteer])
         format.html { redirect_to @volunteer, notice: 'Volunteer was successfully updated.' }
         format.json { head :ok }

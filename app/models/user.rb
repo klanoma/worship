@@ -7,4 +7,14 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  
+  #
+  # because each account can have multiple users, the account number is the main user's id
+  #
+  def account_number
+    
+    #logic coming soon
+    
+    self.id
+  end
 end
