@@ -3,24 +3,30 @@
 .widget.first
   .head
     %h5.iUser2 #{@volunteer.first_name} #{@volunteer.last_name}
-  %p
-    %b Address:
-    %br
-    = @volunteer.address
-    %br
-    = "#{@volunteer.city} #{@volunteer.state.name}, #{@volunteer.zip_code}"
-  %p
-    %b Email:
-    = @volunteer.email
-  %p
-    %b Phone:
-    = @volunteer.phone
-  %p
-    %b Notes:
-    = @volunteer.notes
-  %p
-    %b Volunteer History Table?
+  .body
+    .widgets
+      %h4.red Contact Information:
+      .left
+        -if @volunteer.full_address.to_s != ''
+          %h5 Address:
+          = @volunteer.full_address.html_safe
+      .right
+        -if @volunteer.email.to_s != ''
+          %h5 Email:
+          = @volunteer.email
+        -if @volunteer.phone.to_s != ''
+          %h5 Phone:
+          = @volunteer.phone_formatted
+      .fix
+    .widgets
+      %h4.red Notes:
+      = line_break(@volunteer.notes)
 
-= link_to 'Edit', edit_volunteer_path(@volunteer)
-\|
-= link_to 'Back', volunteers_path
+    .widgets
+      %h4.red Activity Log:
+      This feature is coming soon. Here, you will be able to see other times this volunteer has participated in an event.
+
+    .widgets.actions
+      = link_to 'Back to List', volunteers_path, :class => 'button greyishBtn'
+      = link_to 'Edit', edit_volunteer_path(@volunteer), :class => 'button greenBtn float_right'
+      .fix

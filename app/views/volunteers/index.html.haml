@@ -6,8 +6,8 @@
   %table.display#volunteers
     %thead
       %tr
-        %th First name
         %th Last name
+        %th First name
         %th Email
         %th Phone
         %th
@@ -16,8 +16,8 @@
     %tbody
       - @volunteers.each do |volunteer|
         %tr.gradeA
-          %td= volunteer.first_name
           %td= volunteer.last_name
+          %td= volunteer.first_name
           %td= volunteer.email
           %td= volunteer.phone
           %td= link_to 'Show', volunteer

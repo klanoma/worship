@@ -1,8 +1,14 @@
 module ApplicationHelper
+  #
+  # Returns page page_title if available, default otherwise
+  #
   def page_title
     (@content_for_title if @content_for_title).to_s
   end
 
+  #
+  # Returns page meta_keywords if available, default otherwise
+  #
   def meta_keywords
     if @content_for_meta_keywords
       keywords = @content_for_meta_keywords.to_s
@@ -11,6 +17,9 @@ module ApplicationHelper
     end
   end
 
+  #
+  # Returns page meta_description if available, default otherwise
+  #
   def meta_description
     if @content_for_meta_description
       description = @content_for_meta_description.to_s
@@ -19,7 +28,17 @@ module ApplicationHelper
     end
   end
 
+  #
+  # Returns asterisk is field is required
+  #
   def mark_required(object, attribute)  
-    raw("<span class='required'>*</span>") if object.class.validators_on(attribute).map(&:class).include? ActiveModel::Validations::PresenceValidator  
-  end  
+    '<span class="required">*</span>'.html_safe if object.class.validators_on(attribute).map(&:class).include? ActiveModel::Validations::PresenceValidator  
+  end
+
+  #
+  # Converts unix linebreaks with html line breaks
+  #
+  def line_break(text)
+    text.gsub("\n", '<br/>').html_safe
+  end
 end
