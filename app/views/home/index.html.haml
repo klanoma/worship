@@ -4,19 +4,19 @@
 .stats
   %ul
     %li
-      %a.count.grey{:href => "#", :title => ""} 302
+      %a.count.grey{:href => "#", :title => ""} #{@log_count}
       %span
         worship
         %br logs
     %li
-      %a.count.grey{:href => "#", :title => ""} 200
+      %a.count.blue{:href => "#", :title => ""} #{@week_count}
       %span weeks
     %li
-      %a.count.grey{:href => "#", :title => ""} 3.8
+      %a.count.green{:href => "#", :title => ""} #{@year_count}
       %span years
     %li.last
-      %a.count.grey{:href => "#", :title => ""} 3
-      %span users
+      %a.count.red{:href => "#", :title => ""} #{@volunteer_count}
+      %span Volunteers
   .fix
 
 / Full width tabs
