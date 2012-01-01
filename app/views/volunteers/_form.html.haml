@@ -11,44 +11,53 @@
             %ul
               - @volunteer.errors.full_messages.each do |msg|
                 %li= msg
-    
+
+    .rowElem
+      %p Enter volunteer details in the form below. Asterisks (<span class="required">*</span>) indicate required fields.
     .rowElem
       = f.label :first_name
+      = mark_required @volunteer, :first_name
       .formRight
         = f.text_field :first_name
+      .fix
     .rowElem
       = f.label :last_name
+      = mark_required @volunteer, :last_name
       .formRight
         = f.text_field :last_name
+      .fix
     .rowElem
       = f.label :address
       .formRight
         = f.text_field :address
+      .fix
     .rowElem
       = f.label :city
-      .formRight
-        = f.text_field :city
-    .rowElem
-      = f.label :state_id
-      .formRight
-        = f.number_field :state_id
-    .rowElem
-      = f.label :zip_code
-      .formRight
-        = f.text_field :zip_code
+      .formRight.address
+        = f.text_field :city, :class => 'city'
+        = f.collection_select :state_id, State.all, :id, :name, :prompt => 'select state'
+        = f.label :zip_code
+        = f.text_field :zip_code, :class => 'zip_code'
+      .fix
     .rowElem
       = f.label :email
+      = mark_required @volunteer, :email
       .formRight
         = f.text_field :email
+      .fix
     .rowElem
       = f.label :phone
+      = mark_required @volunteer, :phone
       .formRight
         = f.text_field :phone
+      .fix
     .rowElem
       = f.label :notes
+      = mark_required @volunteer, :notes
       .formRight
         = f.text_area :notes
-    .rowElem
-      = link_to 'Back', volunteers_path, :class => 'button blueBtn'
+      .fix
+    .rowElem.actions
+      = link_to 'Back to List', volunteers_path, :class => 'button greyishBtn'
       = f.submit 'Save', :class => 'greenBtn submitForm'
       .fix

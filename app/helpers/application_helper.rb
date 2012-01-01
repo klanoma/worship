@@ -15,7 +15,11 @@ module ApplicationHelper
     if @content_for_meta_description
       description = @content_for_meta_description.to_s
     else
-      description = 'Worship Log provides a searchable'
+      description = 'Worship Log provides a complete, searchable, and secure archive of worship services. We are bringing the preacher\'s notebook into the new millennium.'
     end
   end
+
+  def mark_required(object, attribute)  
+    raw("<span class='required'>*</span>") if object.class.validators_on(attribute).map(&:class).include? ActiveModel::Validations::PresenceValidator  
+  end  
 end
