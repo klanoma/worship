@@ -132,7 +132,16 @@ $(function() {
   oTable = $('table#volunteers').dataTable({
     "bJQueryUI": true,
     "sPaginationType": "full_numbers",
-    "sDom": '<""f>t<"F"lp>'
+    "sDom": '<""f>t<"F"lp>',
+    "aoColumns": [
+      null,
+      null,
+      null,
+      null,
+      {"bSortable" : false, "bSearchable": false},
+      {"bSortable" : false, "bSearchable": false},
+      {"bSortable" : false, "bSearchable": false}
+    ]
   });
 
   //===== Form elements styling =====//

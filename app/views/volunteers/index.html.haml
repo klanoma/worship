@@ -10,9 +10,9 @@
         %th First name
         %th Email
         %th Phone
-        %th
-        %th
-        %th
+        %th.nosort{:style => 'width: 5%'} View
+        %th.nosort{:style => 'width: 5%'} Edit
+        %th.nosort{:style => 'width: 5%'} Delete
     %tbody
       - @volunteers.each do |volunteer|
         %tr.gradeA
@@ -20,6 +20,6 @@
           %td= volunteer.first_name
           %td= volunteer.email
           %td= volunteer.phone
-          %td= link_to 'Show', volunteer
-          %td= link_to 'Edit', edit_volunteer_path(volunteer)
-          %td= link_to 'Delete', volunteer, :confirm => 'Are you sure you want to delete this volunteer? This action cannot be undone.', :method => :delete
+          %td= link_to '', volunteer, :class => 'button iExpose', :title => 'View'
+          %td= link_to '', edit_volunteer_path(volunteer), :class => 'button iPencil', :title => 'Edit'
+          %td= link_to '', volunteer, :confirm => 'Are you sure you want to delete this volunteer? This action cannot be undone.', :method => :delete, :class => 'button iTrash', :title => 'Delete'

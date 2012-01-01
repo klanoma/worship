@@ -15,6 +15,8 @@ div.dataTables_wrapper .ui-widget-header { font-weight: normal; background: #efe
 
 
 table.display thead th div.DataTables_sort_wrapper { position: relative; padding-right: 20px; color: #878787; }
+table.display thead th.nosort div.DataTables_sort_wrapper{ padding: 0; }
+table.display thead th.nosort{ padding-left: 0; }
 table.display thead th div.DataTables_sort_wrapper span { position: absolute; top: 50%; margin-top: -8px; right: 5px; }
 
 
@@ -79,7 +81,7 @@ tr.even { background-color: white; }
 .top, .bottom { padding: 15px; background-color: #F5F5F5; border: 1px solid #CCCCCC; }
 .top .dataTables_info { float: none; }
 .clear { clear: both; }
-.dataTables_empty { text-align: center; }
+.dataTables_empty { text-align: center; height: 353px; line-height: 353px;}
 
 tfoot input { margin: 0.5em 0; width: 100%; color: #444; }
 tfoot input.search_init { color: #999; }
