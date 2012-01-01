@@ -3,7 +3,7 @@ class VolunteersController < ApplicationController
   # GET /volunteers
   # GET /volunteers.json
   def index
-    @volunteers = Volunteer.find_all_by_user_id(current_user.id)
+    @volunteers = Volunteer.find_all_by_user_id(current_user.account_id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +44,7 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.new(params[:volunteer])
 
     respond_to do |format|
-      @volunteer.user_id = current_user.account_number
+      @volunteer.user_id = current_user.account_id
       if @volunteer.save
         format.html { redirect_to @volunteer, notice: 'Volunteer was successfully created.' }
         format.json { render json: @volunteer, status: :created, location: @volunteer }
@@ -61,7 +61,7 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.find(params[:id])
 
     respond_to do |format|
-      @volunteer.user_id = current_user.account_number
+      @volunteer.user_id = current_user.account_id
       if @volunteer.update_attributes(params[:volunteer])
         format.html { redirect_to @volunteer, notice: 'Volunteer was successfully updated.' }
         format.json { head :ok }
@@ -81,6 +81,17 @@ class VolunteersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to volunteers_url }
       format.json { head :ok }
+    end
+  end
+
+  #returns true if the current user has the ability to
+  def authenticate_crud(volunteer, action)
+
+    # only the main account holder can create, update, or delete
+    if action == 'read'
+      volunteer.user_id == current_user.account_id
+    else
+      volunteer.user_id == current_user.user_id
     end
   end
 end
