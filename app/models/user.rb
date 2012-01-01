@@ -19,4 +19,27 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :first_name, :last_name, :church_name, :email, :password, :password_confirmation, :remember_me
 
+  def main_user
+    if self.id == self.account_id
+      self
+    else
+      User.find!(self.account_id)
+    end
+  end
+
+  def sub_users
+    if self.is_main_user?
+      self
+    else
+      User.find!(self.account_id)
+    end
+  end
+  
+  def is_main_user
+    self_id == self.account_id
+  end
+
+  def is_sub_user
+    self_id != self.account_id
+  end
 end

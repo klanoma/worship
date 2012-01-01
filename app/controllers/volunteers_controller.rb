@@ -14,7 +14,7 @@ class VolunteersController < ApplicationController
   # GET /volunteers/1
   # GET /volunteers/1.json
   def show
-    @volunteer = Volunteer.find(params[:id])
+    @volunteer = Volunteer.find_by_id_and_user_id!(params[:id], current_user.account_id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -58,7 +58,7 @@ class VolunteersController < ApplicationController
   # PUT /volunteers/1
   # PUT /volunteers/1.json
   def update
-    @volunteer = Volunteer.find(params[:id])
+    @volunteer = Volunteer.find_by_id_and_user_id!(params[:id], current_user.account_id)
 
     respond_to do |format|
       @volunteer.user_id = current_user.account_id
@@ -75,7 +75,7 @@ class VolunteersController < ApplicationController
   # DELETE /volunteers/1
   # DELETE /volunteers/1.json
   def destroy
-    @volunteer = Volunteer.find(params[:id])
+    @volunteer = Volunteer.find_by_id_and_user_id!(params[:id], current_user.account_id)
     @volunteer.destroy
 
     respond_to do |format|
@@ -85,6 +85,7 @@ class VolunteersController < ApplicationController
   end
 
   #returns true if the current user has the ability to
+=begin
   def authenticate_crud(volunteer, action)
 
     # only the main account holder can create, update, or delete
@@ -94,4 +95,5 @@ class VolunteersController < ApplicationController
       volunteer.user_id == current_user.user_id
     end
   end
+=end
 end
