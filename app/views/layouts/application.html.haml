@@ -59,6 +59,7 @@
           - flash.each do |name, msg|
             .nNote.hideit.first{:class => "n_#{name}"}
               = content_tag :p, msg, :id => "flash_#{name}" if msg.is_a?(String)
+          = devise_error_messages!
           = yield
         .fix
     - else
@@ -68,6 +69,7 @@
         - flash.each do |name, msg|
           .nNote.hideit.first{:class => "n_#{name}"}
             = content_tag :p, msg, :id => "flash_#{name}" if msg.is_a?(String)
+        = devise_error_messages!
         .loginPanel
           .head
             %h5.iUser #{page_title}

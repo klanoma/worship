@@ -705,19 +705,21 @@ a.jqTransformChecked { background-position: center bottom;} /* Checked - Used fo
 
 /* ===== Notification messages ===== */
 
-.nNote { cursor: pointer; clear: both; margin: 20px 0px 20px 0px; width: 100%; }
+.nNote, #error_explanation { cursor: pointer; clear: both; margin: 20px 0px 20px 0px; width: 100%; }
 .nNote strong { margin-right: 5px; }
-.nNote p, .nNote div { font-size: 13px; padding: 10px 25px 10px 54px; margin: 0px; color: #565656; }
-.nNote ul{ list-style: disc; margin-left: 15px; }
+.nNote p, .nNote div, #error_explanation h2 { font-size: 13px; padding: 10px 25px 10px 54px; margin: 0px; color: #565656; }
+.nNote ul, #error_explanation ul{ list-style: disc; margin-left: 15px; }
 .nMessage p { font-size: 11px; }
 .nWarning { background: #ffe9ad image_url("brain/icons/notifications/error.png") no-repeat 15px center; border: 1px solid #eac572; color: #826200; }
 .nSuccess, .n_notice { background: #effeb9 image_url("brain/icons/notifications/accept.png") no-repeat 15px center; border: 1px solid #c1d779; color: #3C5A01; }
-.nFailure, .n_alert { background: #fccac1 image_url("brain/icons/notifications/exclamation.png") no-repeat 15px center; border: 1px solid #e18b7c; color: #AC260F; }
+.nFailure, .n_alert, #error_explanation { background: #fccac1 image_url("brain/icons/notifications/exclamation.png") no-repeat 15px center; border: 1px solid #e18b7c; color: #AC260F; }
 .nInformation { background: #d1e4f3 image_url("brain/icons/notifications/information.png") no-repeat 15px center; border: 1px solid #99c4ea; color: #235685; }
 .nLightbulb { background: #FEF0CB image_url("brain/icons/notifications/lightbulb.png") no-repeat 15px center; border: 1px solid #D3A350; color: #835F21; }
 .nMessages { background: #9DDFFF image_url("brain/icons/notifications/email.png") no-repeat 15px center; border: 1px solid #42B4FF; color: #835F21; }
 
-
+#error_explanation{
+  
+}
 
 /* ===== Dynamic table headers ===== */
 
