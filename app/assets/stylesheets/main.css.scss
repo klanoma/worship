@@ -149,8 +149,8 @@ blockquote { border : 1px solid #d5d5d5; width: 702px; margin-top: 40px; padding
 blockquote:before { content: open-quote; font-weight: bold; }
 blockquote:after { content: close-quote; font-weight: bold; }
 
-.red { color: #B55D5C; }
-.green { color: #2a8827; }
+.red { color: #920; }
+.green { color: #609500; }
 
 p { padding: 12px 0 0 0; }
 .p12 { padding: 12px; }
@@ -238,7 +238,7 @@ input[type=submit], input[type=reset], input[type=button], button, .button { fon
 .btn55 span { display: block; padding: 5px 5px 0 5px; color: #595858; }
 /*
 .btnIconLeft { border: 1px solid #d5d5d5; background: image_url("brain/leftNavBg.png") repeat-x 0 0; display: inline-block; color: #595858; }
-.btnIconLeft:hover { background: #f6f6f6; color: #B55D5C; }
+.btnIconLeft:hover { background: #f6f6f6; color: #920; }
 .btnIconLeft:active { background: #f1f1f1; }
 */
 .btnIconLeft .icon { float: left; /* border-right: 1px solid #d5d5d5; */ padding: 5px; }
@@ -371,7 +371,7 @@ ul.sub li ul li { padding-left: 10px; }
 .stats a.blue:hover { background-position: 0 -41px; }
 .stats a.blue:active { background-position: 0 -82px; }
 
-.stats a.grey { background: #efefef image_url("brain/leftNavBg.png") repeat-x; border: 1px solid #d5d5d5; color: #b55d5c; }
+.stats a.grey { background: #efefef image_url("brain/leftNavBg.png") repeat-x; border: 1px solid #d5d5d5; color: #920; }
 .stats a.grey:hover { background: #f6f6f6; }
 .stats a.grey:active { background: #f1f1f1; }
 
@@ -517,10 +517,10 @@ html ul.tabs li.activeTab a { color: #797979; }
 .searchWidget input[type=submit] { background: image_url("brain/searchBtn.png") no-repeat 0 0; position: absolute; top: 0; right: 1px; border: none; width: 36px; height: 36px; }
 
 /* Website stats */
-.webStatsLink { font-size: 16px; color: #B55D5C; font-weight: bold; }
+.webStatsLink { font-size: 16px; color: #920; font-weight: bold; }
 .statPlus, .statMinus {   padding-left: 12px; font-size: 12px;  }
 .statPlus { color: #549332; background: image_url("brain/topArrow.png") no-repeat 0 3px; }
-.statMinus { color: #B55D5C; background: image_url("brain/botArrow.png") no-repeat 0 3px; }
+.statMinus { color: #920; background: image_url("brain/botArrow.png") no-repeat 0 3px; }
 
 /* Accordion */
 .menu_body { display: none; padding: 12px 14px; }
