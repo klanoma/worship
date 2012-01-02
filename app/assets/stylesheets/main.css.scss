@@ -27,7 +27,7 @@ table { border-collapse: collapse; }
   padding: 0;
 }
 textarea { overflow: auto; }
-textarea, input[type=text], input[type=password] { font-family: Helvetica, Arial, sans-serif; font-size: 11px; }
+textarea, input[type=text], input[type=password] { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
 button, input[type=submit] { font-family: Helvetica, Arial, sans-serif; }
 
 img { border: 0; }
@@ -194,10 +194,10 @@ p { padding: 12px 0 0 0; }
 .backTo img { margin: 13px 2px 11px 14px; float: left; display: block; }
 .backTo a { float: left; color: #eeeeee; font-size: 11px; border-right: 1px solid #2F2F2F; border-left: 1px solid #2F2F2F; }
 
-.loginWrapper .submitForm{ margin-right: 14px; }
+.loginWrapper .submitForm{ margin-right: 11px; }
 .loginWrapper #login_links{ clear: both; }
 
-.loginWrapper .body { padding: 0 14px 14px 14px;}
+.loginWrapper .body { padding: 0 11px 11px 11px;}
 body#public .loginWrapper{ width: 726px; }
 
 /* ==========  Buttons ========== */
@@ -598,7 +598,7 @@ html ul.tabs li.activeTab a { color: #797979; }
 .jqTransformInputWrapper { float: left; }
 .jqTransformInputWrapper > div { width: 550px; }
 
-.mainForm input[type=text], .mainForm textarea, .mainForm input[type=password] { background: #fff; width: 100%; border: 1px solid #d5d5d5; padding: 5px; font-size: 11px; font-family: Helvetica, Arial, sans-serif; }
+.mainForm input[type=text], .mainForm textarea, .mainForm input[type=password] { background: #fff; width: 100%; border: 1px solid #d5d5d5; padding: 5px; font-size: 13px; font-family: Helvetica, Arial, sans-serif; }
 .mainForm input[type=text]:hover, .mainForm input[type=password]:hover, .mainForm textarea:hover { background: #fcfcfc; border: 1px solid #d1d1d1; }
 .mainForm input[type=text]:focus, .mainForm input[type=password]:focus, .mainForm textarea:focus { border: 1px solid #bbc1c9; background: #fff; }
 
@@ -707,9 +707,9 @@ a.jqTransformChecked { background-position: center bottom;} /* Checked - Used fo
 
 .nNote, #error_explanation { cursor: pointer; clear: both; margin: 20px 0px 20px 0px; width: 100%; }
 .nNote strong { margin-right: 5px; }
-.nNote p, .nNote div, #error_explanation h2 { font-size: 13px; padding: 10px 25px 10px 54px; margin: 0px; color: #565656; }
-.nNote ul, #error_explanation ul{ list-style: disc; margin-left: 15px; }
-.nMessage p { font-size: 11px; }
+.nNote p, .nNote div, #error_explanation h2, #error_explanation ul { font-size: 13px; padding: 10px 25px 10px 54px; margin: 0px; color: #565656; font-family: Helvetica, Arial, sans-serif;}
+.nNote ul, #error_explanation ul{ list-style: disc; margin-left: 25px; }
+.nMessage p { font-size: 13px; }
 .nWarning { background: #ffe9ad image_url("brain/icons/notifications/error.png") no-repeat 15px center; border: 1px solid #eac572; color: #826200; }
 .nSuccess, .n_notice { background: #effeb9 image_url("brain/icons/notifications/accept.png") no-repeat 15px center; border: 1px solid #c1d779; color: #3C5A01; }
 .nFailure, .n_alert, #error_explanation { background: #fccac1 image_url("brain/icons/notifications/exclamation.png") no-repeat 15px center; border: 1px solid #e18b7c; color: #AC260F; }
@@ -717,8 +717,14 @@ a.jqTransformChecked { background-position: center bottom;} /* Checked - Used fo
 .nLightbulb { background: #FEF0CB image_url("brain/icons/notifications/lightbulb.png") no-repeat 15px center; border: 1px solid #D3A350; color: #835F21; }
 .nMessages { background: #9DDFFF image_url("brain/icons/notifications/email.png") no-repeat 15px center; border: 1px solid #42B4FF; color: #835F21; }
 
-#error_explanation{
-  
+#error_explanation h2{
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#error_explanation ul{
+  margin-top: 0;
+  padding-top: 0;
 }
 
 /* ===== Dynamic table headers ===== */

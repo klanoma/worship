@@ -6,7 +6,6 @@
       .rowElem
         .nNote.nFailure.hideit
           %div
-            %strong Error:
             = "#{pluralize(@volunteer.errors.count, "error")} prohibited this volunteer from being saved:"
             %ul
               - @volunteer.errors.full_messages.each do |msg|
