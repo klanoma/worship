@@ -1,8 +1,9 @@
 - @content_for_title = 'Manage Volunteers'
 .table.first
   .head
-    %h5.iAdd
-      = link_to 'Add Volunteer', new_volunteer_path, :class => 'button greenBtn'
+    %a{:href => new_volunteer_path, :class => 'btnIconLeft greenBtn' }
+      = image_tag("brain/icons/light/add.png", :class => 'icon')
+      %span Add Volunteer
   %table.display#volunteers
     %thead
       %tr

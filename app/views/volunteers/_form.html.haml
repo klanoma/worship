@@ -58,6 +58,6 @@
         = f.text_area :notes
       .fix
     .rowElem.actions
-      = link_to 'Back to List', volunteers_path, :class => 'button greyishBtn'
+      = link_to '&laquo; Back to List'.html_safe, volunteers_path, :class => 'button seaBtn'
       = f.submit 'Save', :class => 'greenBtn submitForm'
       .fix

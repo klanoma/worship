@@ -326,7 +326,7 @@ $(function() {
   });
   
   //===== Collapsible elements management =====//
-  
+  /*
   $('.active').collapsible({
     defaultOpen: 'current',
     cookieName: 'nav',
@@ -354,4 +354,5 @@ $(function() {
     cssClose: 'normal',
     speed: 200
   });
+  */
 });
