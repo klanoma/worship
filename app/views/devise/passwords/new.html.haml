@@ -1,9 +1,14 @@
 - @content_for_title = 'Forgot your password?'
-= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
-  = devise_error_messages!
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email
-  %div= f.submit "Send me reset password instructions"
+
+= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => 'mainForm' }) do |f|
+  %fieldset
+    = devise_error_messages!
+    .loginRow.noborder
+      = f.label :email
+      .loginInput
+        = f.text_field :email
+      .fix
+    .loginRow
+      = f.submit 'Send me reset password instructions', :class => 'greenBtn submitForm'
+      .fix
 = render :partial => "devise/shared/links"
