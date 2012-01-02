@@ -194,6 +194,7 @@ p { padding: 12px 0 0 0; }
 .backTo img { margin: 13px 2px 11px 14px; float: left; display: block; }
 .backTo a { float: left; color: #eeeeee; font-size: 11px; border-right: 1px solid #2F2F2F; border-left: 1px solid #2F2F2F; }
 
+.loginWrapper .submitForm{ margin-right: 14px; }
 
 /* ==========  Buttons ========== */
 
@@ -539,8 +540,6 @@ html ul.tabs li.activeTab a { color: #797979; }
 /* ===== Footer ===== */
 
 #footer { clear: both; /*height: 36px;*/ background: image_url("brain/topNav.jpg") repeat; width: 100%; color: #eeeeee; margin-top: 42px; position: absolute; bottom: 0; }
-#footer span { color: #FFF; padding: 9px 5px; display: block; font-size: 11px; }
-#footer span a { color: #eeeeee; }
 
 
 
@@ -708,8 +707,8 @@ a.jqTransformChecked { background-position: center bottom;} /* Checked - Used fo
 .nNote ul{ list-style: disc; margin-left: 15px; }
 .nMessage p { font-size: 11px; }
 .nWarning { background: #ffe9ad image_url("brain/icons/notifications/error.png") no-repeat 15px center; border: 1px solid #eac572; color: #826200; }
-.nSuccess { background: #effeb9 image_url("brain/icons/notifications/accept.png") no-repeat 15px center; border: 1px solid #c1d779; color: #3C5A01; }
-.nFailure { background: #fccac1 image_url("brain/icons/notifications/exclamation.png") no-repeat 15px center; border: 1px solid #e18b7c; color: #AC260F; }
+.nSuccess, .n_notice { background: #effeb9 image_url("brain/icons/notifications/accept.png") no-repeat 15px center; border: 1px solid #c1d779; color: #3C5A01; }
+.nFailure, .n_alert { background: #fccac1 image_url("brain/icons/notifications/exclamation.png") no-repeat 15px center; border: 1px solid #e18b7c; color: #AC260F; }
 .nInformation { background: #d1e4f3 image_url("brain/icons/notifications/information.png") no-repeat 15px center; border: 1px solid #99c4ea; color: #235685; }
 .nLightbulb { background: #FEF0CB image_url("brain/icons/notifications/lightbulb.png") no-repeat 15px center; border: 1px solid #D3A350; color: #835F21; }
 .nMessages { background: #9DDFFF image_url("brain/icons/notifications/email.png") no-repeat 15px center; border: 1px solid #42B4FF; color: #835F21; }

@@ -36,36 +36,61 @@
             %ul
               = render 'shared/main_navigation'
           .fix
-  
+
     / Header
-    #header.wrapper
-      .logo
-        = link_to image_tag("template/logoLarge.png"), root_path
-      .middleNav
-        %ul
-          = render 'shared/secondary_navigation'
+    - if user_signed_in?
+      #header.wrapper
+        .logo
+          = link_to image_tag("template/logoLarge.png"), root_path
+        .middleNav
+          %ul
+            = render 'shared/secondary_navigation'
+        .fix
 
-      .fix
     / Content wrapper
-    .wrapper
-
-      / Left navigation
-      .leftNav
-        %ul#menu
+    - if user_signed_in?
+      .wrapper
+        - if user_signed_in?
           = render 'shared/left_navigation'
-
-      / Content
-      .content
-        .title
-          %h5 #{page_title}
+  
+        / Content
+        .content
+          .title
+            %h5 #{page_title}
+          - flash.each do |name, msg|
+            .nNote.hideit.first{:class => "n_#{name}"}
+              = content_tag :p, msg, :id => "flash_#{name}" if msg.is_a?(String)
+          = yield
+        .fix
+    - else
+      .loginWrapper
+        .loginLogo
+          = image_tag("template/logoLarge.png")
         - flash.each do |name, msg|
-          .nNote.nSuccess.hideit.first
+          .nNote.hideit.first{:class => "n_#{name}"}
             = content_tag :p, msg, :id => "flash_#{name}" if msg.is_a?(String)
-
         = yield
-
-      .fix
+        .fix
 
     #footer
       .wrapper
-        %span &copy; 2011 Worship Log
+        .welcome
+          %span &copy; 2011 Worship Log
+        .userNav
+          %ul
+            %li
+              %a{:href => public_about_path}
+                = image_tag("brain/icons/topnav/tasks.png")
+                %span About
+            %li
+              %a{:href => public_contact_path}
+                = image_tag("brain/icons/topnav/contact.png")
+                %span Contact
+            %li
+              %a{:href => public_privacy_path}
+                = image_tag("brain/icons/topnav/locked2.png")
+                %span Privacy
+            %li
+              %a{:href => public_help_path}
+                = image_tag("brain/icons/topnav/help.png")
+                %span Help

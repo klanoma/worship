@@ -5,4 +5,10 @@ class PublicController < ApplicationController
   def help
   end
 
+  def privacy
+  end
+
+  def about
+  end
+
 end

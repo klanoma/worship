@@ -1,16 +1,15 @@
 Worship::Application.routes.draw do
   resources :volunteers
-
   resources :services
 
   devise_for :users
 
   get "public/contact"
-
+  get "public/privacy"
+  get "public/about"
   get "public/help"
 
   get "home/index"
-
   get "home/search"
 
   root :to => "home#index"

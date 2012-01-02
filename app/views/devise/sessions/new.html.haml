@@ -1,0 +1,24 @@
+- @content_for_title = 'Sign In'
+
+.loginPanel
+  .head
+    %h5.iUser Login
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "mainForm" }) do |f|
+    %fieldset
+      .loginRow.noborder
+        = f.label :email
+        .loginInput
+          = f.text_field :email, :class => 'validate[required]'
+        .fix
+      .loginRow
+        = f.label :password
+        .loginInput
+          = f.password_field :password, :class => 'validate[required]'
+        .fix
+      .loginRow
+        .rememberMe
+          = f.check_box :remember_me
+          = f.label :remember_me
+        = f.submit 'Log Me In', :class => 'greenBtn submitForm'
+        .fix
+      = render :partial => "devise/shared/links"
