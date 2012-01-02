@@ -52,8 +52,7 @@
       .wrapper
         - if user_signed_in?
           = render 'shared/left_navigation'
-  
-        / Content
+
         .content
           .title
             %h5 #{page_title}
@@ -65,12 +64,15 @@
     - else
       .loginWrapper
         .loginLogo
-          = image_tag("template/logoLarge.png")
+          = link_to image_tag("template/logoLarge.png"), root_path
         - flash.each do |name, msg|
           .nNote.hideit.first{:class => "n_#{name}"}
             = content_tag :p, msg, :id => "flash_#{name}" if msg.is_a?(String)
-        = yield
-        .fix
+        .loginPanel
+          .head
+            %h5.iUser #{page_title}
+          = yield
+          .fix
 
     #footer
       .wrapper
@@ -80,17 +82,17 @@
           %ul
             %li
               %a{:href => public_about_path}
-                = image_tag("brain/icons/topnav/tasks.png")
+                = image_tag("brain/icons/light/info.png")
                 %span About
             %li
               %a{:href => public_contact_path}
-                = image_tag("brain/icons/topnav/contact.png")
+                = image_tag("brain/icons/light/create.png")
                 %span Contact
             %li
               %a{:href => public_privacy_path}
-                = image_tag("brain/icons/topnav/locked2.png")
+                = image_tag("brain/icons/light/locked2.png")
                 %span Privacy
             %li
               %a{:href => public_help_path}
-                = image_tag("brain/icons/topnav/help.png")
+                = image_tag("brain/icons/light/help.png")
                 %span Help
