@@ -28,7 +28,7 @@
             - if user_signed_in?
               = link_to image_tag("brain/userPic.png"), edit_user_registration_path
 
-              %span Howdy, #{current_user.email}!
+              %span Howdy, #{current_user.first_name} #{current_user.last_name}!
             - else
               %span Welcome to Worship Log
 
