@@ -1,37 +1,65 @@
 - @content_for_title = "Edit #{resource_name.to_s.humanize}"
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-  %div
-    = f.label :first_name
-    %br
-    = f.text_field :first_name
-  %div
-    = f.label :last_name
-    %br
-    = f.text_field :last_name
-  %div
-    = f.label :church_name
-    %br
-    = f.text_field :church_name
-  %div
-    = f.label :email
-    %br
-    = f.text_field :email
-  %div
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br
-    = f.password_field :password
-  %div
-    = f.label :password_confirmation
-    %br
-    = f.password_field :password_confirmation
-  %div
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br
-    = f.password_field :current_password
-  %div= f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete}.
-= link_to "Back", :back
+
+.widget.first
+  .head
+    %h5.iUser2 Volunteer Form
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'mainForm' }) do |f|
+    .rowElem
+      %p Enter account details in the form below. Asterisks (<span class="required">*</span>) indicate required fields.
+    .rowElem
+      = f.label :first_name
+      = mark_required resource, :first_name
+      .formRight
+        = f.text_field :first_name
+      .fix
+    .rowElem
+      = f.label :last_name
+      = mark_required resource, :last_name
+      .formRight
+        = f.text_field :last_name
+      .fix
+    .rowElem
+      = f.label :church_name
+      = mark_required resource, :church_name
+      .formRight
+        = f.text_field :church_name
+      .fix
+    .rowElem
+      = f.label :email
+      = mark_required resource, :email
+      .formRight
+        = f.text_field :email
+      .fix
+    .rowElem
+      = f.label :password, "New password"
+      .formRight
+        = f.password_field :password
+        %br
+        .sublabel (Leave blank if you don't want to change it.)
+      .fix
+    .rowElem
+      = f.label :password_confirmation
+      .formRight
+        = f.password_field :password_confirmation
+      .fix
+    .rowElem
+      = f.label :current_password
+      %span.required *
+      .formRight
+        = f.password_field :current_password
+        %br
+        .sublabel (We need your current password to confirm your changes.)
+      .fix
+    .rowElem.actions
+      = link_to '&laquo; Back to Dashboard'.html_safe, root_path, :class => 'button seaBtn'
+      = f.submit 'Update', :class => 'greenBtn submitForm'
+      .fix
+
+.widget
+  .head
+    %h5.iAlert Delete my Account
+  .mainForm
+    .rowElem
+      %p Unhappy?
+    .rowElem.actions
+      #{link_to "Delete my account and all of my data", registration_path(resource_name), :confirm => "Are you sure you want to delete your account? This action cannot be undone.", :method => :delete, :class => 'button redBtn'}
