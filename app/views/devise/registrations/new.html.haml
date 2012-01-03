@@ -1,38 +1,47 @@
 - @content_for_title = 'Register'
 
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'mainForm' }) do |f|
-  %fieldset
-    .loginRow.noborder
-      = f.label :first_name
-      .loginInput
-        = f.text_field :first_name
-      .fix
-    .loginRow
-      = f.label :last_name
-      .loginInput
-        = f.text_field :last_name
-      .fix
-    .loginRow
-      = f.label :church_name
-      .loginInput
-        = f.text_field :church_name
-      .fix
-    .loginRow
-      = f.label :email
-      .loginInput
-        = f.text_field :email
-      .fix
-    .loginRow
-      = f.label :password
-      .loginInput
-        = f.password_field :password
-      .fix
-    .loginRow
-      = f.label :password_confirmation
-      .loginInput
-        = f.password_field :password_confirmation
-      .fix
-    .loginRow
-      = f.submit 'Sign up', :class => 'greenBtn submitForm'
-      .fix
-= render :partial => "devise/shared/links"
+.loginPanel
+  .head
+    %h5.iUser #{page_title}
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'mainForm' }) do |f|
+    %fieldset
+      .loginRow.noborder
+        = f.label :first_name
+        .loginInput
+          = f.text_field :first_name
+        .fix
+      .loginRow
+        = f.label :last_name
+        .loginInput
+          = f.text_field :last_name
+        .fix
+      .loginRow
+        = f.label :church_name
+        .loginInput
+          = f.text_field :church_name
+        .fix
+      .loginRow
+        = f.label :email
+        .loginInput
+          = f.text_field :email
+        .fix
+      .loginRow
+        = f.label :password
+        .loginInput
+          = f.password_field :password
+        .fix
+      .loginRow
+        = f.label :password_confirmation
+        .loginInput
+          = f.password_field :password_confirmation
+        .fix
+      .loginRow
+        = f.submit 'Sign up', :class => 'greenBtn submitForm'
+        .fix
+
+.loginPanel
+  .head
+    %h5.iSettings Options
+  .body
+    = render :partial => "devise/shared/links"
+  .fix

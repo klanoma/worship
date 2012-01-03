@@ -72,11 +72,7 @@
             = content_tag :p, msg, :id => "flash_#{name}" if msg.is_a?(String)
         - if defined? resource
           = devise_error_messages!
-        .loginPanel
-          .head
-            %h5.iUser #{page_title}
-          = yield
-          .fix
+        = yield
 
     #footer
       .wrapper

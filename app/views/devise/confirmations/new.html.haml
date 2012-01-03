@@ -1,13 +1,22 @@
 - @content_for_title = 'Resend Confirmation Instructions'
 
-= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :class => 'mainForm' }) do |f|
-  %fieldset
-    .loginRow.noborder
-      = f.label :email
-      .loginInput
-        = f.text_field :email
-      .fix
-    .loginRow
-      = f.submit 'Resend confirmation instructions', :class => 'greenBtn submitForm'
-      .fix
-= render :partial => "devise/shared/links"
+.loginPanel
+  .head
+    %h5.iUser #{page_title}
+  = form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :class => 'mainForm' }) do |f|
+    %fieldset
+      .loginRow.noborder
+        = f.label :email
+        .loginInput
+          = f.text_field :email
+        .fix
+      .loginRow
+        = f.submit 'Resend confirmation instructions', :class => 'greenBtn submitForm'
+        .fix
+
+.loginPanel
+  .head
+    %h5.iSettings Options
+  .body
+    = render :partial => "devise/shared/links"
+  .fix

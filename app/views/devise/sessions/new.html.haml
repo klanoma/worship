@@ -1,21 +1,30 @@
 - @content_for_title = 'Login'
 
-= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "mainForm" }) do |f|
-  %fieldset
-    .loginRow.noborder
-      = f.label :email
-      .loginInput
-        = f.text_field :email
-      .fix
-    .loginRow
-      = f.label :password
-      .loginInput
-        = f.password_field :password
-      .fix
-    .loginRow
-      .rememberMe
-        = f.check_box :remember_me
-        = f.label :remember_me
-      = f.submit 'Log Me In', :class => 'greenBtn submitForm'
-      .fix
-= render :partial => "devise/shared/links"
+.loginPanel
+  .head
+    %h5.iUser #{page_title}
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "mainForm" }) do |f|
+    %fieldset
+      .loginRow.noborder
+        = f.label :email
+        .loginInput
+          = f.text_field :email
+        .fix
+      .loginRow
+        = f.label :password
+        .loginInput
+          = f.password_field :password
+        .fix
+      .loginRow
+        .rememberMe
+          = f.check_box :remember_me
+          = f.label :remember_me
+        = f.submit 'Log Me In', :class => 'greenBtn submitForm'
+        .fix
+
+.loginPanel
+  .head
+    %h5.iSettings Options
+  .body
+    = render :partial => "devise/shared/links"
+  .fix
