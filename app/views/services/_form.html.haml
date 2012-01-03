@@ -1,25 +1,42 @@
-= form_for @service do |f|
-  -if @service.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@service.errors.count, "error")} prohibited this service from being saved:"
-      %ul
-        - @service.errors.full_messages.each do |msg|
-          %li= msg
+.widget.first
+  .head
+    %h5.iUser2 Worship Log Form
+  = form_for @service, :html => { :class => "mainForm" } do |f|
+    -if @service.errors.any?
+      .rowElem
+        .nNote.nFailure.hideit
+          %div
+            = "#{pluralize(@service.errors.count, "error")} prohibited this worship log from being saved:"
+            %ul
+              - @service.errors.full_messages.each do |msg|
+                %li= msg
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .field
-    = f.label :sort
-    = f.number_field :sort
-  .field
-    = f.label :started_at
-    = f.datetime_select :started_at
-  .actions
-    = f.submit 'Save'
+    .rowElem
+      %p Enter worship log details in the form below. Asterisks (<span class="required">*</span>) indicate required fields.
+    .rowElem
+      = f.label :title
+      = mark_required @service, :title
+      .formRight
+        = f.text_field :title
+      .fix
+    .rowElem
+      = f.label :description
+      = mark_required @service, :description
+      .formRight
+        = f.text_area :description
+      .fix
+    .rowElem
+      = f.label :sort, 'Service #'
+      = mark_required @service, :sort
+      .formRight
+        = f.select  :sort, (1..5).collect {|p| [ p, p ] }, { :include_blank => false }
+      .fix
+    .rowElem
+      = f.label :started_at
+      .formRight
+        = f.date_select :started_at
+      .fix
+    .rowElem.actions
+      = link_to '&laquo; Back to List'.html_safe, services_path, :class => 'button seaBtn'
+      = f.submit 'Save', :class => 'greenBtn submitForm'
+      .fix
