@@ -4,7 +4,7 @@
 .stats
   %ul
     %li
-      %a.count.grey{:href => "#"} #{@log_count}
+      %a.count.grey{:href => services_path} #{@log_count}
       %span
         worship
         %br logs
@@ -15,7 +15,7 @@
       %a.count.green{:href => "#"} #{@year_count}
       %span years
     %li.last
-      %a.count.red{:href => volunteer_index_path} #{@volunteer_count}
+      %a.count.red{:href => volunteers_path} #{@volunteer_count}
       %span Volunteers
   .fix
 
