@@ -41,7 +41,7 @@
     - if user_signed_in?
       #header.wrapper
         .logo
-          = link_to image_tag("template/logoLarge.png"), root_path
+          = link_to image_tag("template/logoMedium.gif"), root_path
         .middleNav
           %ul
             = render 'shared/secondary_navigation'
@@ -66,7 +66,7 @@
     - else
       .loginWrapper
         .loginLogo
-          = link_to image_tag("template/logoLarge.png"), root_path
+          = link_to image_tag("template/logoLarge.gif"), root_path
         - flash.each do |name, msg|
           .nNote.hideit.first{:class => "n_#{name}"}
             = content_tag :p, msg, :id => "flash_#{name}" if msg.is_a?(String)
