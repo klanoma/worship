@@ -11,7 +11,7 @@ ActionMailer::Base.default_url_options = { :host => 'beta.worshiplog.com' }
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
   :address => "smtp.gmail.com",
-  :port => 465,
+  :port => 587,
   :authentication => :plain,
   :user_name => "webmaster@worshiplog.com",
   :password => "mollygirl"
