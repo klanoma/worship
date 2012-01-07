@@ -7,6 +7,7 @@ Worship::Application.initialize!
 #Action Mailer!
 ActionMailer::Base.perform_deliveries = true
 ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.default_url_options = { :host => 'beta.worshiplog.com' }
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
   :address => "smtp.gmail.com",
