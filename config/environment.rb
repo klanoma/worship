@@ -12,7 +12,7 @@ ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
   :address => "smtp.gmail.com",
   :port => 465,
-  :authentication => :login,
+  :authentication => :plain,
   :user_name => "webmaster@worshiplog.com",
   :password => "mollygirl"
 }
