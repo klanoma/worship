@@ -14,5 +14,6 @@ ActionMailer::Base.smtp_settings = {
   :port => 587,
   :authentication => :plain,
   :user_name => "webmaster@worshiplog.com",
-  :password => "mollygirl"
+  :password => "mollygirl",
+  :enable_starttls_auto => true
 }
