@@ -14,3 +14,4 @@ gem "haml-rails", ">= 0.3.4", :group => :development
 gem "devise", ">= 1.5.0"
 gem "jquery-rails"
 gem "therubyracer"
+gem "capistrano"
