@@ -38,5 +38,5 @@ production:
   database: worship_production
   pool: 5
   username: worship
-  password: 3q9GS471nf97NTTBBN----
+  password: 3q9GS471nf97NTTBBN
   host: localhost
