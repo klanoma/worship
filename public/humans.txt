@@ -1,7 +1,6 @@
 /* the humans responsible & colophon */
 /* humanstxt.org */
 
-
 /* TEAM */
   Developer: William Youmans
   Site: http://www.williamyoumans.com
