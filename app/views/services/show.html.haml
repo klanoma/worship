@@ -1,20 +1,14 @@
-- @content_for_title = 'View Worship Log'
-%p
-  %b Title:
-  = @service.title
-%p
-  %b Description:
-  = @service.description
-%p
-  %b User:
-  = @service.user_id
-%p
-  %b Sort:
-  = @service.sort
-%p
-  %b Started at:
-  = @service.started_at
+- @content_for_title = 'View Log'
 
-= link_to 'Edit', edit_service_path(@service)
-\|
-= link_to 'Back', services_path
+.widget.first
+  .head
+    %h5.iUser2 Coming Soon
+  .body
+    .widgets
+      %h4.red Coming Soon:
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales dolor eget massa faucibus id porttitor velit mollis. Donec quis felis purus, nec feugiat felis. Vivamus auctor, augue ac ullamcorper blandit, libero eros rhoncus libero, tempus pulvinar ante est quis sapien. In placerat velit non nunc pharetra malesuada quis sed mi. Maecenas quis felis tellus. Ut malesuada dictum rutrum. Cras enim risus, porta vel rhoncus sed, lobortis at libero. Maecenas dapibus, leo in pharetra euismod, justo turpis commodo augue, vel fringilla turpis mauris quis magna. Etiam vulputate diam a massa viverra at malesuada erat tristique. Pellentesque orci dolor, cursus vitae gravida sed, mattis iaculis orci. Cras mollis adipiscing metus, rhoncus facilisis arcu sodales sit amet.
+
+    .widgets.actions
+      = link_to '&laquo; Back to List'.html_safe, services_path, :class => 'button greyishBtn'
+      = link_to 'Edit', edit_service_path(@service), :class => 'button greenBtn float_right'
+      .fix
