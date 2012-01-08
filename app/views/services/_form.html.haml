@@ -20,9 +20,9 @@
         = f.select  :sort, (1..5).collect {|p| [ p, p ] }, { :include_blank => false }
       .fix
     .rowElem
-      = f.label :started_at
+      = f.label :started_at, 'Date'
       .formRight
-        = f.date_select :started_at
+        = f.text_field :started_at, :class => 'datepicker'
       .fix
 
     .rowElem

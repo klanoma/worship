@@ -566,7 +566,8 @@ html ul.tabs li.activeTab a { color: #797979; }
 .mainForm label { margin-right: 15px; display: block; float:left; padding: 4px 10px; }
 .mainForm .sublabel { font-size: 10px; color: #D5D5D5; }
 
-.datepicker { width: 58px!important; cursor: pointer; }
+.datepicker { width: 70px!important; cursor: pointer; }
+#ui-datepicker-div{ z-index: 100 !important;}
 .colorpick { width: 58px!important; float: left; cursor: pointer; }
 .pick { width: 16px; height: 16px; float: left; background: image_url("brain/color.png") no-repeat 0; margin: 2px 5px; cursor: pointer; padding: 4px 0!important; }
 .colorP { position: relative; width: 58px; }

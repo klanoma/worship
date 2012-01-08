@@ -27,6 +27,7 @@ class ServicesController < ApplicationController
   # GET /services/new.json
   def new
     @service = Service.new
+    @service.started_at = Time.now.strftime('%Y-%m-%d ')
 
     respond_to do |format|
       format.html # new.html.erb
