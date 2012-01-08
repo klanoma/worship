@@ -27,7 +27,7 @@
     .rowElem
       = f.label :lectionary_week_id
       .formRight
-        = f.select :lectionary_week_id, LectionaryWeek.all {|week| [ week.id, week.id ] }, { :prompt => 'select week&nbsp;&nbsp;'.html_safe }
+        = f.select :lectionary_week_id, LectionaryWeek.find_all_by_lectionary_order_id(1).collect {|p| [ "#{p.year} #{p.week} #{p.scripture}", p.id ] }, { :prompt => 'select week&nbsp;&nbsp;'.html_safe }
       .fix
 
     .rowElem

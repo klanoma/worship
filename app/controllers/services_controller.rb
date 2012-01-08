@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   before_filter :authenticate_user!
-  
+
   # GET /services
   # GET /services.json
   def index
