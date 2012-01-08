@@ -59,7 +59,6 @@ $(function() {
   $( ".datepicker" ).datepicker({ 
     defaultDate: +7,
     autoSize: true,
-    appendText: '(yyyy-mm-dd)',
     dateFormat: 'yy-mm-dd'
   });
 

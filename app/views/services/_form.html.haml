@@ -14,21 +14,15 @@
     .rowElem
       %p Enter worship log details in the form below. Asterisks (<span class="required">*</span>) indicate required fields.
     .rowElem
-      = f.label :sort, 'Service #', :class => 'leftDir', :'original-title' => 'instructions!'
-      = mark_required @service, :sort
-      .formRight
-        = f.select :sort, (1..5).collect {|i| [ i, i ] }, { :include_blank => false }
-      .fix
-    .rowElem
-      = f.label :date
-      .formRight
+      .ontop{ :style => 'width: 100px;'}
+        = f.label :date
         = f.text_field :date, :class => 'datepicker'
-      .fix
-    .rowElem
-      = f.label :lectionary_week_id
-      .formRight
+      .ontop{ :style => 'width: 91px;'}
+        = f.label :sort, 'Service #', :class => 'leftDir', :'original-title' => 'instructions!'
+        = f.select :sort, [ [ 'First', 1 ], [ 'Second', 2 ], [ 'Third', 3 ], [ 'Fourth', 4 ], [ 'Fifth', 5 ] ], { :include_blank => false }
+      .ontop{ :style => 'width: 360px;'}
+        = f.label :lectionary_week_id
         = f.select :lectionary_week_id, LectionaryWeek.find_all_by_lectionary_order_id(1).collect {|p| [ "#{p.year} #{p.week} #{p.scripture}", p.id ] }, { :prompt => 'select week&nbsp;&nbsp;'.html_safe }
-      .fix
 
     .rowElem
       .widget.first
@@ -51,14 +45,12 @@
             .rowElem
               = f.label :title
               = mark_required @service, :title
-              .formRight
-                = f.text_field :title
+              = f.text_field :title
               .fix
             .rowElem
               = f.label :description, 'Notes'
               = mark_required @service, :description
-              .formRight
-                = f.text_area :description
+              = f.text_area :description
               .fix
             .fix
           #volunteers.tab_content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales dolor eget massa faucibus id porttitor velit mollis. Donec quis felis purus, nec feugiat felis. Vivamus auctor, augue ac ullamcorper blandit, libero eros rhoncus libero, tempus pulvinar ante est quis sapien. In placerat velit non nunc pharetra malesuada quis sed mi. Maecenas quis felis tellus. Ut malesuada dictum rutrum. Cras enim risus, porta vel rhoncus sed, lobortis at libero. Maecenas dapibus, leo in pharetra euismod, justo turpis commodo augue, vel fringilla turpis mauris quis magna. Etiam vulputate diam a massa viverra at malesuada erat tristique. Pellentesque orci dolor, cursus vitae gravida sed, mattis iaculis orci. Cras mollis adipiscing metus, rhoncus facilisis arcu sodales sit amet.

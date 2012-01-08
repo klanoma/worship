@@ -23,7 +23,7 @@
   float: right;
 }
 
-.float:left{
+.float_left{
   float: left;
 }
 
@@ -41,3 +41,12 @@ table.display td.icon .button.iExpose{
   background-image: image_url("brain/icons/middlenav/expose.png");
 }
 */
+
+.mainForm .ontop{
+  width: 100px;
+  float: left;
+}
+.mainForm .ontop label{
+  margin-left: 0;
+  padding-left: 0;
+}
