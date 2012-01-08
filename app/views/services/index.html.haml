@@ -17,7 +17,7 @@
     %tbody
       - @services.each do |service|
         %tr.gradeA
-          %td #{service.started_at.strftime('%Y-%m-%d')} - #{service.sort}
+          %td #{service.date.strftime('%Y-%m-%d')} - #{service.sort}
           %td Coming Soon
           %td= service.title
           %td.center.icon= link_to '', service, :class => 'button iCamera', :title => 'View'
