@@ -14,18 +14,6 @@
     .rowElem
       %p Enter worship log details in the form below. Asterisks (<span class="required">*</span>) indicate required fields.
     .rowElem
-      = f.label :title
-      = mark_required @service, :title
-      .formRight
-        = f.text_field :title
-      .fix
-    .rowElem
-      = f.label :description
-      = mark_required @service, :description
-      .formRight
-        = f.text_area :description
-      .fix
-    .rowElem
       = f.label :sort, 'Service #', :class => 'leftDir', :'original-title' => 'instructions!'
       = mark_required @service, :sort
       .formRight
@@ -36,6 +24,45 @@
       .formRight
         = f.date_select :started_at
       .fix
+
+    .rowElem
+      .widget.first
+        %ul.tabs
+          %li
+            %a{:href => "#sermon"} Sermon
+          %li
+            %a{:href => "#announcements"} Announcements
+          %li
+            %a{:href => "#volunteers"} Volunteers
+          %li
+            %a{:href => "#music"} Music
+          %li
+            %a{:href => "#readings"} Readings
+          %li
+            %a{:href => "#liturgical"} Liturgical Notes
+
+        .tab_container
+          #sermon.tab_content
+            .rowElem
+              = f.label :title
+              = mark_required @service, :title
+              .formRight
+                = f.text_field :title
+              .fix
+            .rowElem
+              = f.label :description, 'Notes'
+              = mark_required @service, :description
+              .formRight
+                = f.text_area :description
+              .fix
+            .fix
+          #volunteers.tab_content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales dolor eget massa faucibus id porttitor velit mollis. Donec quis felis purus, nec feugiat felis. Vivamus auctor, augue ac ullamcorper blandit, libero eros rhoncus libero, tempus pulvinar ante est quis sapien. In placerat velit non nunc pharetra malesuada quis sed mi. Maecenas quis felis tellus. Ut malesuada dictum rutrum. Cras enim risus, porta vel rhoncus sed, lobortis at libero. Maecenas dapibus, leo in pharetra euismod, justo turpis commodo augue, vel fringilla turpis mauris quis magna. Etiam vulputate diam a massa viverra at malesuada erat tristique. Pellentesque orci dolor, cursus vitae gravida sed, mattis iaculis orci. Cras mollis adipiscing metus, rhoncus facilisis arcu sodales sit amet.
+          #announcements.tab_content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales dolor eget massa faucibus id porttitor velit mollis. Donec quis felis purus, nec feugiat felis. Vivamus auctor, augue ac ullamcorper blandit, libero eros rhoncus libero, tempus pulvinar ante est quis sapien. In placerat velit non nunc pharetra malesuada quis sed mi. Maecenas quis felis tellus. Ut malesuada dictum rutrum. Cras enim risus, porta vel rhoncus sed, lobortis at libero. Maecenas dapibus, leo in pharetra euismod, justo turpis commodo augue, vel fringilla turpis mauris quis magna. Etiam vulputate diam a massa viverra at malesuada erat tristique. Pellentesque orci dolor, cursus vitae gravida sed, mattis iaculis orci. Cras mollis adipiscing metus, rhoncus facilisis arcu sodales sit amet.
+          #readings.tab_content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales dolor eget massa faucibus id porttitor velit mollis. Donec quis felis purus, nec feugiat felis. Vivamus auctor, augue ac ullamcorper blandit, libero eros rhoncus libero, tempus pulvinar ante est quis sapien. In placerat velit non nunc pharetra malesuada quis sed mi. Maecenas quis felis tellus. Ut malesuada dictum rutrum. Cras enim risus, porta vel rhoncus sed, lobortis at libero. Maecenas dapibus, leo in pharetra euismod, justo turpis commodo augue, vel fringilla turpis mauris quis magna. Etiam vulputate diam a massa viverra at malesuada erat tristique. Pellentesque orci dolor, cursus vitae gravida sed, mattis iaculis orci. Cras mollis adipiscing metus, rhoncus facilisis arcu sodales sit amet.
+          #liturgical.tab_content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales dolor eget massa faucibus id porttitor velit mollis. Donec quis felis purus, nec feugiat felis. Vivamus auctor, augue ac ullamcorper blandit, libero eros rhoncus libero, tempus pulvinar ante est quis sapien. In placerat velit non nunc pharetra malesuada quis sed mi. Maecenas quis felis tellus. Ut malesuada dictum rutrum. Cras enim risus, porta vel rhoncus sed, lobortis at libero. Maecenas dapibus, leo in pharetra euismod, justo turpis commodo augue, vel fringilla turpis mauris quis magna. Etiam vulputate diam a massa viverra at malesuada erat tristique. Pellentesque orci dolor, cursus vitae gravida sed, mattis iaculis orci. Cras mollis adipiscing metus, rhoncus facilisis arcu sodales sit amet.
+          #volunteers.tab_content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales dolor eget massa faucibus id porttitor velit mollis. Donec quis felis purus, nec feugiat felis. Vivamus auctor, augue ac ullamcorper blandit, libero eros rhoncus libero, tempus pulvinar ante est quis sapien. In placerat velit non nunc pharetra malesuada quis sed mi. Maecenas quis felis tellus. Ut malesuada dictum rutrum. Cras enim risus, porta vel rhoncus sed, lobortis at libero. Maecenas dapibus, leo in pharetra euismod, justo turpis commodo augue, vel fringilla turpis mauris quis magna. Etiam vulputate diam a massa viverra at malesuada erat tristique. Pellentesque orci dolor, cursus vitae gravida sed, mattis iaculis orci. Cras mollis adipiscing metus, rhoncus facilisis arcu sodales sit amet.
+          #music.tab_content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales dolor eget massa faucibus id porttitor velit mollis. Donec quis felis purus, nec feugiat felis. Vivamus auctor, augue ac ullamcorper blandit, libero eros rhoncus libero, tempus pulvinar ante est quis sapien. In placerat velit non nunc pharetra malesuada quis sed mi. Maecenas quis felis tellus. Ut malesuada dictum rutrum. Cras enim risus, porta vel rhoncus sed, lobortis at libero. Maecenas dapibus, leo in pharetra euismod, justo turpis commodo augue, vel fringilla turpis mauris quis magna. Etiam vulputate diam a massa viverra at malesuada erat tristique. Pellentesque orci dolor, cursus vitae gravida sed, mattis iaculis orci. Cras mollis adipiscing metus, rhoncus facilisis arcu sodales sit amet.
+        .fix
     .rowElem.actions
       = link_to '&laquo; Back to List'.html_safe, services_path, :class => 'button greyishBtn'
       = f.submit 'Save', :class => 'greenBtn submitForm'

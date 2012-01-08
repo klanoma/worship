@@ -10,9 +10,6 @@ Worship::Application.routes.draw do
   get "public/about"
   get "public/help"
 
-  get "home/index"
-  get "home/search"
-
   root :to => "public#index"
 
   # The priority is based upon order of creation:

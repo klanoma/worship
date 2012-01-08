@@ -1,4 +1,24 @@
 - @content_for_title = 'Home'
+- @content_for_title = 'Dashboard' if user_signed_in?
+
+-if user_signed_in?
+  .stats
+    %ul
+      %li
+        %a.count.grey{:href => services_path} #{@log_count}
+        %span
+          worship
+          %br logs
+      %li
+        %a.count.blue{:href => "#"} #{@week_count}
+        %span weeks
+      %li
+        %a.count.green{:href => "#"} #{@year_count}
+        %span years
+      %li.last
+        %a.count.red{:href => volunteers_path} #{@volunteer_count}
+        %span Volunteers
+    .fix
 
 .widget.first
   .head
