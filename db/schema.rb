@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108054231) do
+ActiveRecord::Schema.define(:version => 20120108222751) do
 
   create_table "bible_books", :force => true do |t|
     t.string    "title",        :limit => 22, :default => "", :null => false
@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20120108054231) do
   add_index "bible_verses", ["bible_translation_id"], :name => "verses_volume_id"
   add_index "bible_verses", ["chapter", "verse"], :name => "verses_chapter_verse"
   add_index "bible_verses", ["chapter"], :name => "chapter"
+
+  create_table "default_volunteer_positions", :force => true do |t|
+    t.string   "name"
+    t.integer  "sort"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "hymnals", :force => true do |t|
     t.string   "name"
@@ -111,10 +118,10 @@ ActiveRecord::Schema.define(:version => 20120108054231) do
   add_index "lectionary_weeks", ["year"], :name => "index_lectionary_weeks_on_year"
 
   create_table "services", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "lectionary_week_id"
-    t.date     "date"
+    t.integer  "user_id"
     t.string   "title"
+    t.date     "date"
     t.text     "description"
     t.integer  "sort"
     t.datetime "created_at"
@@ -157,6 +164,15 @@ ActiveRecord::Schema.define(:version => 20120108054231) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "volunteer_positions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "volunteer_id"
+    t.string   "name"
+    t.integer  "sort"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "volunteers", :force => true do |t|
     t.string   "first_name"

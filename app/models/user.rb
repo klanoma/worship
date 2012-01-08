@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   #relations
   has_many:services
   has_many:volunteers
+  has_many:volunteer_positions
   has_many:lectionary_notes
 
   #validation
