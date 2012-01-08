@@ -35,7 +35,7 @@ class VolunteersController < ApplicationController
 
   # GET /volunteers/1/edit
   def edit
-    @volunteer = Volunteer.find(params[:id])
+    @volunteer = Volunteer.find_by_id_and_user_id!(params[:id], current_user.account_id)
   end
 
   # POST /volunteers

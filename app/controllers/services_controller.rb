@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @services = Service.all
+    @services = Service.find_all_by_user_id(current_user.account_id)
 
     respond_to do |format|
       format.html # index.html.haml
@@ -15,7 +15,7 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
-    @service = Service.find(params[:id])
+    @service = Service.find_by_id_and_user_id!(params[:id], current_user.account_id)
 
     respond_to do |format|
       format.html # show.html.haml
@@ -37,7 +37,7 @@ class ServicesController < ApplicationController
 
   # GET /services/1/edit
   def edit
-    @service = Service.find(params[:id])
+    @service = Service.find_by_id_and_user_id!(params[:id], current_user.account_id)
   end
 
   # POST /services
@@ -46,6 +46,7 @@ class ServicesController < ApplicationController
     @service = Service.new(params[:service])
 
     respond_to do |format|
+      @service.user_id = current_user.account_id
       if @service.save
         format.html { redirect_to @service, notice: 'Service was successfully created.' }
         format.json { render json: @service, status: :created, location: @service }
@@ -59,9 +60,10 @@ class ServicesController < ApplicationController
   # PUT /services/1
   # PUT /services/1.json
   def update
-    @service = Service.find(params[:id])
+    @service = Service.find_by_id_and_user_id!(params[:id], current_user.account_id)
 
     respond_to do |format|
+      @service.user_id = current_user.account_id
       if @service.update_attributes(params[:service])
         format.html { redirect_to @service, notice: 'Service was successfully updated.' }
         format.json { head :ok }
@@ -75,7 +77,7 @@ class ServicesController < ApplicationController
   # DELETE /services/1
   # DELETE /services/1.json
   def destroy
-    @service = Service.find(params[:id])
+    @service = Service.find_by_id_and_user_id!(params[:id], current_user.account_id)
     @service.destroy
 
     respond_to do |format|
