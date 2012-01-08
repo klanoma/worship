@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108222751) do
+ActiveRecord::Schema.define(:version => 20120108223956) do
 
   create_table "bible_books", :force => true do |t|
     t.string    "title",        :limit => 22, :default => "", :null => false
@@ -167,7 +167,6 @@ ActiveRecord::Schema.define(:version => 20120108222751) do
 
   create_table "volunteer_positions", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "volunteer_id"
     t.string   "name"
     t.integer  "sort"
     t.datetime "created_at"
