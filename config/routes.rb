@@ -1,4 +1,6 @@
 Worship::Application.routes.draw do
+  resources :settings
+
   resources :volunteers
   resources :services
 

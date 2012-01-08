@@ -22,7 +22,7 @@
         = f.select :sort, [ [ 'First', 1 ], [ 'Second', 2 ], [ 'Third', 3 ], [ 'Fourth', 4 ], [ 'Fifth', 5 ] ], { :include_blank => false }
       .ontop{ :style => 'width: 360px;'}
         = f.label :lectionary_week_id
-        = f.select :lectionary_week_id, LectionaryWeek.find_all_by_lectionary_order_id(1).collect {|p| [ "#{p.year} #{p.week} #{p.scripture}", p.id ] }, { :prompt => 'select week&nbsp;&nbsp;'.html_safe }
+        = f.select :lectionary_week_id, LectionaryWeek.find_all_by_lectionary_order_id(1).collect {|p| [ "#{p.year}#{p.week} #{p.scripture}", p.id ] }, { :prompt => 'select week&nbsp;&nbsp;'.html_safe }
 
     .rowElem
       .widget.first
