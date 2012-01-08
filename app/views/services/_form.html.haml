@@ -26,7 +26,7 @@
         = f.text_area :description
       .fix
     .rowElem
-      = f.label :sort, 'Service #'
+      = f.label :sort, 'Service #', :class => 'leftDir', :'original-title' => 'instructions!'
       = mark_required @service, :sort
       .formRight
         = f.select  :sort, (1..5).collect {|p| [ p, p ] }, { :include_blank => false }

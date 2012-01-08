@@ -4,6 +4,7 @@ Worship::Application.routes.draw do
 
   devise_for :users
 
+  get "public/index"
   get "public/contact"
   get "public/privacy"
   get "public/about"
@@ -12,7 +13,7 @@ Worship::Application.routes.draw do
   get "home/index"
   get "home/search"
 
-  root :to => "home#index"
+  root :to => "public#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
