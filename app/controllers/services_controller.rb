@@ -7,7 +7,7 @@ class ServicesController < ApplicationController
     @services = Service.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.json { render json: @services }
     end
   end
@@ -18,7 +18,7 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.haml
       format.json { render json: @service }
     end
   end
@@ -27,10 +27,10 @@ class ServicesController < ApplicationController
   # GET /services/new.json
   def new
     @service = Service.new
-    @service.started_at = Time.now.strftime('%Y-%m-%d ')
+    @service.date = Time.now.strftime('%Y-%m-%d ')
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.haml
       format.json { render json: @service }
     end
   end

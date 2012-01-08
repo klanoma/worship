@@ -17,12 +17,17 @@
       = f.label :sort, 'Service #', :class => 'leftDir', :'original-title' => 'instructions!'
       = mark_required @service, :sort
       .formRight
-        = f.select  :sort, (1..5).collect {|p| [ p, p ] }, { :include_blank => false }
+        = f.select :sort, (1..5).collect {|i| [ i, i ] }, { :include_blank => false }
       .fix
     .rowElem
-      = f.label :started_at, 'Date'
+      = f.label :date
       .formRight
-        = f.text_field :started_at, :class => 'datepicker'
+        = f.text_field :date, :class => 'datepicker'
+      .fix
+    .rowElem
+      = f.label :lectionary_week_id
+      .formRight
+        = f.select :lectionary_week_id, LectionaryWeek.all {|week| [ week.id, week.id ] }, { :prompt => 'select week&nbsp;&nbsp;'.html_safe }
       .fix
 
     .rowElem

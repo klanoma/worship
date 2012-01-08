@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120101054018) do
+ActiveRecord::Schema.define(:version => 20120108054231) do
 
   create_table "bible_books", :force => true do |t|
     t.string    "title",        :limit => 22, :default => "", :null => false
@@ -111,14 +111,14 @@ ActiveRecord::Schema.define(:version => 20120101054018) do
   add_index "lectionary_weeks", ["year"], :name => "index_lectionary_weeks_on_year"
 
   create_table "services", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "lectionary_week_id"
+    t.date     "date"
     t.string   "title"
     t.text     "description"
-    t.integer  "user_id"
     t.integer  "sort"
-    t.datetime "started_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "lectionary_week_id"
   end
 
   create_table "states", :force => true do |t|
@@ -129,6 +129,10 @@ ActiveRecord::Schema.define(:version => 20120101054018) do
   end
 
   create_table "users", :force => true do |t|
+    t.integer  "account_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "church_name"
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "confirmation_token"
@@ -147,10 +151,6 @@ ActiveRecord::Schema.define(:version => 20120101054018) do
     t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "account_id"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "church_name"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
