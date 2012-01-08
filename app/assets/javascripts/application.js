@@ -50,120 +50,9 @@ $(function() {
 
   $().UItoTop({ easingType: 'easeOutQuart' });
 
-  //===== Contacts list =====//
-  
-  $('#myList').listnav({ 
-    initLetter: 'a', 
-    includeAll: true, 
-    includeOther: false,
-    flagDisabled: true, 
-    noMatchText: 'Nothing matched your filter, please click another letter.', 
-    prefixes: ['the','a']
-  });
-
-  //===== Calendar =====//
-
-  var date = new Date();
-  var d = date.getDate();
-  var m = date.getMonth();
-  var y = date.getFullYear();
-  
-  $('#calendar').fullCalendar({
-    header: {
-      left: 'prev,next',
-      center: 'title',
-      right: 'month,basicWeek,basicDay'
-    },
-    editable: true,
-    events: [
-      {
-        title: 'All day event',
-        start: new Date(y, m, 1)
-      },
-      {
-        title: 'Long event',
-        start: new Date(y, m, 5),
-        end: new Date(y, m, 8)
-      },
-      {
-        id: 999,
-        title: 'Repeating event',
-        start: new Date(y, m, 2, 16, 0),
-        end: new Date(y, m, 3, 18, 0),
-        allDay: false
-      },
-      {
-        id: 999,
-        title: 'Repeating event',
-        start: new Date(y, m, 9, 16, 0),
-        end: new Date(y, m, 10, 18, 0),
-        allDay: false
-      },
-      {
-        title: 'Actually any color could be applied for background',
-        start: new Date(y, m, 30, 10, 30),
-        end: new Date(y, m, d+1, 14, 0),
-        allDay: false,
-        color: '#B55D5C'
-      },
-      {
-        title: 'Lunch',
-        start: new Date(y, m, 14, 12, 0),
-        end: new Date(y, m, 15, 14, 0),
-        allDay: false
-      },
-      {
-        title: 'Birthday PARTY',
-        start: new Date(y, m, 18),
-        end: new Date(y, m, 20),
-        allDay: false
-      },
-      {
-        title: 'Click for Google',
-        start: new Date(y, m, 27),
-        end: new Date(y, m, 29),
-        url: 'http://google.com/'
-      }
-    ]
-  });
-
-  //===== Dynamic data table =====//
-
-  $('table#volunteers').dataTable({
-    "bJQueryUI": true,
-    "sPaginationType": "full_numbers",
-    "sDom": '<f>t<"F"lp>',
-    "aoColumns": [
-      null,
-      null,
-      null,
-      {"bSortable" : false, "bSearchable": false},
-      {"bSortable" : false, "bSearchable": false}
-    ]
-  });
-  
-  $('table#services').dataTable({
-    "bJQueryUI": true,
-    "sPaginationType": "full_numbers",
-    "sDom": '<f>t<"F"lp>',
-    "aoColumns": [
-      null,
-      null,
-      null,
-      null,
-      {"bSortable" : false, "bSearchable": false},
-      {"bSortable" : false, "bSearchable": false},
-      {"bSortable" : false, "bSearchable": false}
-    ]
-  });
-
   //===== Form elements styling =====//
   
   $('form').jqTransform({imgPath:'../images/forms'});
-
-  //===== Form validation engine =====//
-
-  $("#valid").validationEngine();
 
   //===== Datepickers =====//
 
@@ -194,26 +83,19 @@ $(function() {
   });
 
   //=====Resizable table columns =====//
-  
-  var onSampleResized = function(e){
-    var columns = $(e.currentTarget).find("th");
-    var msg = "columns widths: ";
-    columns.each(function(){ msg += $(this).width() + "px; "; })
-  };  
 
   $(".resize").colResizable({
     liveDrag:true, 
     gripInnerHtml:"<div class='grip'></div>", 
     draggingClass:"dragging", 
-    onResize:onSampleResized});
-
-  //===== Left navigation submenu animation =====//  
-
-  $("ul.sub li a").hover(function() {
-    $(this).stop().animate({ color: "#3a6fa5" }, 400);
-  },function() {
-    $(this).stop().animate({ color: "#494949" }, 400);
+    onResize:onSampleResized
   });
+
+  var onSampleResized = function(e){
+    var columns = $(e.currentTarget).find("th");
+    var msg = "columns widths: ";
+    columns.each(function(){ msg += $(this).width() + "px; "; })
+  };
 
   //===== Autogrowing textarea =====//
   
@@ -226,65 +108,6 @@ $(function() {
   $('.onlyAlpha input').autotab_magic().autotab_filter('alpha');
   $('.onlyRegex input').autotab_magic().autotab_filter({ format: 'custom', pattern: '[^0-9\.]' });
   $('.allUpper input').autotab_magic().autotab_filter({ format: 'alphanumeric', uppercase: true });
-
-  //===== jQuery UI sliders =====//  
-  
-  $( ".uiSlider" ).slider();
-  
-  $( ".uiSliderInc" ).slider({
-    value:100,
-    min: 0,
-    max: 500,
-    step: 50,
-    slide: function( event, ui ) {
-      $( "#amount" ).val( "$" + ui.value );
-    }
-  });
-  $( "#amount" ).val( "$" + $( ".uiSliderInc" ).slider( "value" ) );
-    
-  $( ".uiRangeSlider" ).slider({
-    range: true,
-    min: 0,
-    max: 500,
-    values: [ 75, 300 ],
-    slide: function( event, ui ) {
-      $( "#rangeAmount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-    }
-  });
-  $( "#rangeAmount" ).val( "$" + $( ".uiRangeSlider" ).slider( "values", 0 ) +" - $" + $( ".uiRangeSlider" ).slider( "values", 1 ));
-      
-  $( ".uiMinRange" ).slider({
-    range: "min",
-    value: 37,
-    min: 1,
-    max: 700,
-    slide: function( event, ui ) {
-      $( "#minRangeAmount" ).val( "$" + ui.value );
-    }
-  });
-  $( "#minRangeAmount" ).val( "$" + $( ".uiMinRange" ).slider( "value" ) );
-  
-  $( ".uiMaxRange" ).slider({
-    range: "max",
-    min: 1,
-    max: 100,
-    value: 20,
-    slide: function( event, ui ) {
-      $( "#maxRangeAmount" ).val( ui.value );
-    }
-  });
-  $( "#maxRangeAmount" ).val( $( ".uiMaxRange" ).slider( "value" ) );  
-
-  $( "#eq > span" ).each(function() {
-    // read initial values from markup and remove that
-    var value = parseInt( $( this ).text(), 10 );
-    $( this ).empty().slider({
-      value: value,
-      range: "min",
-      animate: true,
-      orientation: "vertical"
-    });
-  });
 
   //===== Autofocus =====//  
   
@@ -311,7 +134,7 @@ $(function() {
   
   };//end function
 
-  $("div[class^='widget']").simpleTabs(); //Run function on any div with class name of "Simple Tabs"
+  $("div[class^='widget']").simpleTabs();
 
   //===== Placeholder for all browsers =====//
   
@@ -327,45 +150,4 @@ $(function() {
       });
     }
   });
-
-  //===== User nav dropdown =====//    
-
-  $('.dd').click(function () {
-    $('ul.menu_body').slideToggle(100);
-  });
-  
-  $('.acts').click(function () {
-    $('ul.actsBody').slideToggle(100);
-  });
-  
-  //===== Collapsible elements management =====//
-  /*
-  $('.active').collapsible({
-    defaultOpen: 'current',
-    cookieName: 'nav',
-    speed: 300
-  });
-
-  $('.exp').collapsible({
-    defaultOpen: 'current',
-    cookieName: 'navAct',
-    cssOpen: 'active',
-    cssClose: 'inactive',
-    speed: 300
-  });
-
-  $('.opened').collapsible({
-    defaultOpen: 'opened,toggleOpened',
-    cssOpen: 'inactive',
-    cssClose: 'normal',
-    speed: 200
-  });
-
-  $('.closed').collapsible({
-    defaultOpen: '',
-    cssOpen: 'inactive',
-    cssClose: 'normal',
-    speed: 200
-  });
-  */
 });
