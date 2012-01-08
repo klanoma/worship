@@ -18,7 +18,7 @@
       - @services.each do |service|
         %tr.gradeA
           %td #{service.date.strftime('%Y-%m-%d')} - #{service.sort}
-          %td Coming Soon
+          %td= service.lectionary_week_string
           %td= service.title
           %td.center.icon= link_to '', service, :class => 'button iCamera', :title => 'View'
           %td.center.icon= link_to '', edit_service_path(service), :class => 'button iPencil', :title => 'Edit'
