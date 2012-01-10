@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem "rake"
-
 gem "rails", "3.1.3"
 group :assets do
   gem "sass-rails",   "~> 3.1.5"
@@ -15,3 +14,4 @@ gem "devise", ">= 1.5.0"
 gem "jquery-rails"
 gem "therubyracer"
 gem "capistrano"
+gem "cancan"

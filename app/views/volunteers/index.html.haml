@@ -1,9 +1,13 @@
 - @content_for_title = 'Manage Volunteers'
+
+- @crud_columns = 0
+
 .table.first
   .head
-    %a{:href => new_volunteer_path, :class => 'btnIconLeft greenBtn' }
-      = image_tag("brain/icons/light/add.png", :class => 'icon')
-      %span Add Volunteer
+    -if can? :create, Volunteer
+      %a{:href => new_volunteer_path, :class => 'btnIconLeft greenBtn' }
+        = image_tag("brain/icons/light/add.png", :class => 'icon')
+        %span Add Volunteer
   %table.resize.display#volunteers
     %thead
       %tr
@@ -11,9 +15,15 @@
         %th First name
         %th Email
         %th Phone
-        %th.nosort{:style => 'width: 5%'} View
-        %th.nosort{:style => 'width: 5%'} Edit
-        %th.nosort{:style => 'width: 5%'} Delete
+        -if can? :read, Volunteer
+          - @crud_columns += 1
+          %th.nosort{:style => 'width: 5%'} View
+        -if can? :update, Volunteer
+          - @crud_columns += 1
+          %th.nosort{:style => 'width: 5%'} Edit
+        -if can? :destroy, Volunteer
+          - @crud_columns += 1
+          %th.nosort{:style => 'width: 5%'} Delete
     %tbody
       - @volunteers.each do |volunteer|
         %tr.gradeA
@@ -21,6 +31,19 @@
           %td= volunteer.first_name
           %td= volunteer.email
           %td= volunteer.phone
-          %td.center.icon= link_to '', volunteer, :class => 'button iCamera', :title => 'View'
-          %td.center.icon= link_to '', edit_volunteer_path(volunteer), :class => 'button iPencil', :title => 'Edit'
-          %td.center.icon= link_to '', volunteer, :confirm => 'Are you sure you want to delete this volunteer? This action cannot be undone.', :method => :delete, :class => 'button iTrash', :title => 'Delete'
+          -if can? :read, volunteer
+            %td.center.icon= link_to '', volunteer, :class => 'button iCamera', :title => 'View'
+          -if can? :update, volunteer
+            %td.center.icon= link_to '', edit_volunteer_path(volunteer), :class => 'button iPencil', :title => 'Edit'
+          -if can? :destroy, volunteer
+            %td.center.icon= link_to '', volunteer, :confirm => 'Are you sure you want to delete this volunteer? This action cannot be undone.', :method => :delete, :class => 'button iTrash', :title => 'Delete'
+
+:javascript
+  $(function() {
+    $("table#volunteers").dataTable({
+      bJQueryUI: true,
+      sPaginationType: "full_numbers",
+      sDom: "<f>t<\"F\"lp>",
+      aoColumns: #{datatable_columns_with_authentication(4, @crud_columns)}
+    });
+  });

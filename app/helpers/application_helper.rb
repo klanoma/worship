@@ -41,4 +41,18 @@ module ApplicationHelper
   def line_break(text)
     text.gsub("\n", '<br/>').html_safe
   end
+  
+  #
+  #
+  #
+  def datatable_columns_with_authentication(attribute_column_count, crud_column_count)
+    @columns = Array.new
+    @attribute_column = nil;
+    @crud_column = { :bSortable => false, :bSearchable => false };
+    
+    1.upto(attribute_column_count) { |i| puts @columns << @attribute_column }
+    1.upto(crud_column_count) { |i| puts @columns << @crud_column }
+    
+    @columns.to_json
+  end
 end

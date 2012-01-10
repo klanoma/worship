@@ -1,4 +1,6 @@
 class ServicesController < ApplicationController
+  load_and_authorize_resource
+
   before_filter :authenticate_user!
 
   # GET /services
@@ -15,7 +17,7 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
-    @service = Service.find_by_id_and_user_id!(params[:id], current_user.account_id)
+    #@service is already loaded and authorized
 
     respond_to do |format|
       format.html # show.html.haml
@@ -37,7 +39,7 @@ class ServicesController < ApplicationController
 
   # GET /services/1/edit
   def edit
-    @service = Service.find_by_id_and_user_id!(params[:id], current_user.account_id)
+    #@service is already loaded and authorized
   end
 
   # POST /services
@@ -60,7 +62,7 @@ class ServicesController < ApplicationController
   # PUT /services/1
   # PUT /services/1.json
   def update
-    @service = Service.find_by_id_and_user_id!(params[:id], current_user.account_id)
+    #@service is already loaded and authorized
 
     respond_to do |format|
       @service.user_id = current_user.account_id
@@ -77,7 +79,7 @@ class ServicesController < ApplicationController
   # DELETE /services/1
   # DELETE /services/1.json
   def destroy
-    @service = Service.find_by_id_and_user_id!(params[:id], current_user.account_id)
+    #@service is already loaded and authorized
     @service.destroy
 
     respond_to do |format|
