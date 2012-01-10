@@ -10,5 +10,6 @@
 
     .widgets.actions
       = link_to '&laquo; Back to List'.html_safe, services_path, :class => 'button greyishBtn'
-      = link_to 'Edit', edit_service_path(@service), :class => 'button greenBtn float_right'
+      - if can? :update, @service
+        = link_to 'Edit', edit_service_path(@service), :class => 'button greenBtn float_right'
       .fix

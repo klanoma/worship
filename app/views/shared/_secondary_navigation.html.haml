@@ -1,11 +1,13 @@
 - if user_signed_in?
-  %li.iAdd
-    %a{:href => new_service_path}
-      %span Add Log
+  - if can? :create, Service
+    %li.iAdd
+      %a{:href => new_service_path}
+        %span Add Log
 
-  %li.iUser
-    %a{:href => new_volunteer_path}
-      %span Add Volunteer
+  - if can? :create, Volunteer
+    %li.iUser
+      %a{:href => new_volunteer_path}
+        %span Add Volunteer
 
   %li.iSearch
     %a{:href => '#'}

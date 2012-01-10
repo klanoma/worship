@@ -28,5 +28,6 @@
 
     .widgets.actions
       = link_to '&laquo; Back to List'.html_safe, volunteers_path, :class => 'button greyishBtn'
-      = link_to 'Edit', edit_volunteer_path(@volunteer), :class => 'button greenBtn float_right'
+      - if can? :update, @volunteer
+        = link_to 'Edit', edit_volunteer_path(@volunteer), :class => 'button greenBtn float_right'
       .fix
