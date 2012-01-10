@@ -118,14 +118,14 @@ ActiveRecord::Schema.define(:version => 20120108223956) do
   add_index "lectionary_weeks", ["year"], :name => "index_lectionary_weeks_on_year"
 
   create_table "services", :force => true do |t|
-    t.integer  "lectionary_week_id"
-    t.integer  "user_id"
     t.string   "title"
-    t.date     "date"
     t.text     "description"
+    t.integer  "user_id"
     t.integer  "sort"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "lectionary_week_id"
+    t.date     "date"
   end
 
   create_table "states", :force => true do |t|
