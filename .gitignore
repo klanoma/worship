@@ -37,6 +37,7 @@ tmp/*
 /spec/routing
 /spec/views
 /specifications
+/public/assets
 
 # scm revert files
 **.orig
