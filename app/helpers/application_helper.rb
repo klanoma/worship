@@ -55,4 +55,12 @@ module ApplicationHelper
     
     @columns.to_json
   end
+
+  #
+  # show the gravatar image for a profile - based on their email
+  #
+  def gravatar(email, size = 100)
+    the_hash = Digest::MD5.hexdigest(email).to_s
+    image_tag "http://www.gravatar.com/avatar/#{the_hash}?s=#{size}&d=mm"
+  end
 end
