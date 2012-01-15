@@ -49,15 +49,15 @@ module ApplicationHelper
     @columns = Array.new
     @attribute_column = nil;
     @crud_column = { :bSortable => false, :bSearchable => false };
-    
+
     1.upto(attribute_column_count) { |i| @columns << @attribute_column }
     1.upto(crud_column_count) { |i| @columns << @crud_column }
-    
+
     @columns.to_json
   end
 
   #
-  # show the gravatar image for a profile - based on their email
+  # Show the gravatar image for a profile - based on their email
   #
   def gravatar(email, size = 100)
     the_hash = Digest::MD5.hexdigest(email).to_s

@@ -9,6 +9,7 @@ Worship::Application.routes.draw do  resources :volunteers
   get "public/privacy"
   get "public/about"
   get "public/help"
+  get "settings/index"
 
   root :to => "public#index"
 
