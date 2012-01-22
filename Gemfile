@@ -15,12 +15,12 @@ gem "jquery-rails"
 gem "capistrano"
 gem "cancan"
 
-# RSpec
+# BDD
 group :development, :test do
-#  gem 'rspec-rails', '~> 2.8.0'
+# gem 'rspec-rails', '~> 2.8.0'
 # gem 'capybara',    '~> 1.1.2'
-  gem 'capybara-webkit' # Need to do this first: `brew install qt` - Install Homebrew first if you don't have that
-  gem 'launchy',     '~> 2.0.5'
-  gem "cucumber-rails", "~> 1.2.1"
-  gem 'spork', '~> 0.9.0.rc9'
+# gem 'capybara-webkit' # Need to do this first: `brew install qt` - Install Homebrew first if you don't have that
+# gem 'launchy',     '~> 2.0.5'
+# gem "cucumber-rails", "~> 1.2.1"
+# gem 'spork', '~> 0.9.0.rc9'
 end
