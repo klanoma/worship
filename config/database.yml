@@ -7,7 +7,6 @@ development:
   username: root
   password:
   host: localhost
-  socket: /Applications/MAMP/tmp/mysql/mysql.sock
 
 test:
   adapter: mysql2
@@ -18,7 +17,6 @@ test:
   username: root
   password:
   host: localhost
-  socket: /Applications/MAMP/tmp/mysql/mysql.sock
 
 production:
   adapter: mysql2
