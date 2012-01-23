@@ -55,6 +55,7 @@ tmp/*
 *.komodoproject
 .komodotools
 *.esproj
+*.sublime*
 
 # Netbeans project directory
 /nbproject/
