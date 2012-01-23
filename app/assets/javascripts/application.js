@@ -19,29 +19,29 @@ $(function() {
   $(".bAlert").click( function() {
     jAlert('This is a custom alert box. Title and this text can be easily editted', 'Alert Dialog Sample');
   });
-  
+
   $(".bConfirm").click( function() {
     jConfirm('Can you confirm this?', 'Confirmation Dialog', function(r) {
       jAlert('Confirmed: ' + r, 'Confirmation Results');
     });
   });
-  
+
   $(".bPromt").click( function() {
     jPrompt('Type something:', 'Prefilled value', 'Prompt Dialog', function(r) {
       if( r ) alert('You entered ' + r);
     });
   });
-  
+
   $(".bHtml").click( function() {
     jAlert('You can use HTML, such as <strong>bold</strong>, <em>italics</em>, and <u>underline</u>!');
   });
 
-  //===== Accordion =====//    
-  
+  //===== Accordion =====//
+
   $('div.menu_body:eq(0)').show();
   $('.acc .head:eq(0)').show().css({color:"#2B6893"});
-  
-  $(".acc .head").click(function() {  
+
+  $(".acc .head").click(function() {
     $(this).css({color:"#2B6893"}).next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
     $(this).siblings().css({color:"#404040"});
   });
@@ -51,12 +51,12 @@ $(function() {
   $().UItoTop({ easingType: 'easeOutQuart' });
 
   //===== Form elements styling =====//
-  
+
   $('form').jqTransform({imgPath:'../images/forms'});
 
   //===== Datepickers =====//
 
-  $( ".datepicker" ).datepicker({ 
+  $( ".datepicker" ).datepicker({
     defaultDate: +7,
     autoSize: true,
     dateFormat: 'yy-mm-dd'
@@ -69,7 +69,7 @@ $(function() {
   });
 
   //===== Tooltip =====//
-    
+
   $('.leftDir').tipsy({fade: true, gravity: 'e'});
   $('.rightDir').tipsy({fade: true, gravity: 'w'});
   $('.topDir').tipsy({fade: true, gravity: 's'});
@@ -84,9 +84,9 @@ $(function() {
   //=====Resizable table columns =====//
 
   $(".resize").colResizable({
-    liveDrag:true, 
-    gripInnerHtml:"<div class='grip'></div>", 
-    draggingClass:"dragging", 
+    liveDrag:true,
+    gripInnerHtml:"<div class='grip'></div>",
+    draggingClass:"dragging",
     onResize:onSampleResized
   });
 
@@ -97,7 +97,7 @@ $(function() {
   };
 
   //===== Autogrowing textarea =====//
-  
+
   $(".auto").autoGrow();
 
   //===== Autotabs. Inline data rows =====//
@@ -108,19 +108,19 @@ $(function() {
   $('.onlyRegex input').autotab_magic().autotab_filter({ format: 'custom', pattern: '[^0-9\.]' });
   $('.allUpper input').autotab_magic().autotab_filter({ format: 'alphanumeric', uppercase: true });
 
-  //===== Autofocus =====//  
-  
+  //===== Autofocus =====//
+
   $('.autoF').focus();
 
   //===== Tabs =====//
 
-  $.fn.simpleTabs = function(){ 
-  
+  $.fn.simpleTabs = function(){
+
     //Default Action
     $(this).find(".tab_content").hide(); //Hide all content
     $(this).find("ul.tabs li:first").addClass("activeTab").show(); //Activate first tab
     $(this).find(".tab_content:first").show(); //Show first tab content
-  
+
     //On Click Event
     $("ul.tabs li").click(function() {
       $(this).parent().parent().find("ul.tabs li").removeClass("activeTab"); //Remove any "active" class
@@ -130,13 +130,13 @@ $(function() {
       $(activeTab).show(); //Fade in the active content
       return false;
     });
-  
+
   };//end function
 
   $("div[class^='widget']").simpleTabs();
 
   //===== Placeholder for all browsers =====//
-  
+
   $("input").each(
     function(){
       if($(this).val()=="" && $(this).attr("placeholder")!=""){

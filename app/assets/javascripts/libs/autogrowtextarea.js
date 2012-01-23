@@ -11,16 +11,16 @@ jQuery.fn.autoGrow = function(){
     // Variables
     var colsDefault = this.cols;
     var rowsDefault = this.rows;
-    
+
     //Functions
     var grow = function() {
       growByRef(this);
     }
-    
+
     var growByRef = function(obj) {
       var linesCount = 0;
       var lines = obj.value.split('\n');
-      
+
       for (var i=lines.length-1; i>=0; --i)
       {
         linesCount += Math.floor((lines[i].length / colsDefault) + 1);
@@ -31,23 +31,23 @@ jQuery.fn.autoGrow = function(){
       else
         obj.rows = rowsDefault;
     }
-    
+
     var characterWidth = function (obj){
       var characterWidth = 0;
       var temp1 = 0;
       var temp2 = 0;
       var tempCols = obj.cols;
-      
+
       obj.cols = 1;
       temp1 = obj.offsetWidth;
       obj.cols = 2;
       temp2 = obj.offsetWidth;
       characterWidth = temp2 - temp1;
       obj.cols = tempCols;
-      
+
       return characterWidth;
     }
-    
+
     // Manipulations
     this.style.height = "auto";
     this.style.overflow = "hidden";

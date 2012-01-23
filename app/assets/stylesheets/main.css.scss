@@ -113,13 +113,13 @@ a { text-decoration: none; color: #2b6893; }
 
 
 input::-moz-focus-inner /*Remove button padding in FF*/
-{ 
+{
   border: 0;
   padding: 0;
 }
 
 a.button::-moz-focus-inner /*Remove button padding in FF*/
-{ 
+{
   border: 0;
   padding-top: 20px;
 }
@@ -180,11 +180,11 @@ p { padding: 12px 0 0 0; }
 .loginPanel { background: #fafafa; border: 1px solid #d5d5d5; border-top: 0; display: block; height: auto; margin-top: 18px; }
 .loginWrapper { position: relative; margin: 18px auto; width: 340px; }
 
-.loginPanel h5 { font-weight: normal; padding: 9px 12px 9px 35px; float: left; } 
+.loginPanel h5 { font-weight: normal; padding: 9px 12px 9px 35px; float: left; }
 
 .loginPanel label { width: 80px; }
 .rememberMe { margin-left: 12px; }
-.rememberMe label { padding: 4px 12px!important; width: auto; } 
+.rememberMe label { padding: 4px 12px!important; width: auto; }
 .loginInput { width: 200px; float: left; }
 .loginRow { border-top: 1px solid #e7e7e7; padding: 15px 0; position: relative; }
 .loginRow:first-child { border-top: none; }
@@ -401,12 +401,12 @@ ul.sub li ul li { padding-left: 10px; }
 
 .widget { /*width: 342px;*/ /*width: 100%;*/ margin-top: 40px; border: 1px solid #d5d5d5; display: block; background: #fafafa; clear: both; border-top: none; }
 .head { background: #efefef image_url("brain/leftNavBg.png") repeat-x; height: 38px; border-top: 1px solid #d5d5d5; border-bottom: 1px solid #d5d5d5; position: relative; }
-.widget .head h5, .table h5 { font-weight: normal; padding: 9px 12px 9px 35px; float: left; } 
+.widget .head h5, .table h5 { font-weight: normal; padding: 9px 12px 9px 35px; float: left; }
 .widget .body { padding: 12px 14px; }
 .widget .normal h5, .accordion-close h5 { background: image_url("brain/aNormal.png") no-repeat 15px 15px; padding: 9px 12px 9px 32px!important }
 .widget .inactive h5, .accordion-open h5 { background: image_url("brain/aInactive.png") no-repeat 12px 17px; padding: 9px 12px 9px 32px!important; }
 
-.widget .head a.btnIconLeft, .table .head a.btnIconLeft { margin: 6px 0 0 6px; float: left; } 
+.widget .head a.btnIconLeft, .table .head a.btnIconLeft { margin: 6px 0 0 6px; float: left; }
 
 .widget .num { float: right; display: inline-block; text-align: center; margin: 9px 12px 0 0; font-size: 11px; }
 .widget .num span { margin-right: 10px; }
@@ -458,7 +458,7 @@ ul.tabs li { float: left; height: 38px; line-height: 38px; border-left: none; ov
 ul.tabs li a { text-decoration: none; display: block; padding: 0px 12px; outline: none; color: #424242; }
 ul.tabs li a:hover { color: #797979; }
 html ul.tabs li.activeTab  { background-color: #fafafa; height: 38px; }
-html ul.tabs li.activeTab a { color: #797979; } 
+html ul.tabs li.activeTab a { color: #797979; }
 
 .tab_container { overflow: hidden; clear: both; float: left; width: 100%; }
 .tab_content { padding: 10px 12px; }
@@ -597,7 +597,7 @@ html ul.tabs li.activeTab a { color: #797979; }
 #valid input { position: relative; }
 
 
-/* Inputs */ 
+/* Inputs */
 .jqTransformInputWrapper { float: left; }
 .jqTransformInputWrapper > div { width: 550px; }
 
@@ -754,7 +754,7 @@ a.jqTransformChecked { background-position: center bottom;} /* Checked - Used fo
 /* ===== Growl notifications ===== */
 
 div.jGrowl { z-index: 9999; color: #fff; font-size: 12px; }
-div.ie6.top-right { 
+div.ie6.top-right {
   right:         auto;
   bottom:       auto;
   left:         expression( ( 0 - jGrowl.offsetWidth + ( document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth ) + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
@@ -982,7 +982,7 @@ ul.listData li { display: inline-block; padding: 0 6px 1px 6px!important; border
 .plupload_filelist_header, .plupload_filelist_footer { background: #EFEFEF image_url("brain/leftNavBg.png") repeat-x; padding: 3px 12px; color: #878787; }
 .plupload_filelist_header {  border-bottom: 1px solid #d5d5d5; }
 
-.plupload_filelist_footer { border-top: 1px solid #D5D5D5; height: 31px; line-height: 30px; vertical-align: middle; } 
+.plupload_filelist_footer { border-top: 1px solid #D5D5D5; height: 31px; line-height: 30px; vertical-align: middle; }
 .plupload_file_name { float: left; overflow: hidden; }
 .plupload_file_status { color: #777; }
 .plupload_file_status span {}

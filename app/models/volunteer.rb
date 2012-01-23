@@ -9,7 +9,7 @@ class Volunteer < ActiveRecord::Base
     :with => /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i,
     :message => 'must be a valid'
   }
-  
+
   def full_address
     @full_address = ''
     @full_address += self.address + '<br>' if self.address.to_s != ''
@@ -18,7 +18,7 @@ class Volunteer < ActiveRecord::Base
     @full_address += self.state.name if self.state
     @full_address += ' ' + self.zip_code if self.zip_code.to_s != ''
   end
-  
+
   def phone_formatted
     self.phone
   end

@@ -1,13 +1,13 @@
 /**
  * Autotab - jQuery plugin 1.1b
  * http://www.lousyllama.com/sandbox/jquery-autotab
- * 
+ *
  * Copyright (c) 2008 Matthew Miller
- * 
+ *
  * Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php
  *   http://www.gnu.org/licenses/gpl.html
- * 
+ *
  * Revised: 2008-09-10 16:55:08
  */
 
@@ -29,11 +29,11 @@ var check_element = function(name) {
 /**
  * autotab_magic automatically establishes autotabbing with the
  * next and previous elements as provided by :input.
- * 
+ *
  * autotab_magic should called after applying filters, if used.
  * If any filters are applied after calling autotab_magic, then
  * Autotab may not protect against brute force typing.
- * 
+ *
  * @name  autotab_magic
  * @param  focus  Applies focus on the specified element
  * @example  $(':input').autotab_magic();
@@ -61,7 +61,7 @@ $.fn.autotab_magic = function(focus) {
 /**
  * This will take any of the text that is typed and
  * format it according to the options specified.
- * 
+ *
  * Option values:
  *  format    text|number|alphanumeric|all|custom
  *  - Text      Allows all characters except numbers
@@ -72,16 +72,16 @@ $.fn.autotab_magic = function(focus) {
  *
  *  uppercase  true|false
  *  - Converts a string to UPPERCASE
- * 
+ *
  *  lowercase  true|false
  *  - Converts a string to lowecase
- * 
+ *
  *  nospace    true|false
  *  - Remove spaces in the user input
- * 
+ *
  *  pattern    null|(regular expression)
  *  - Custom regular expression for the filter
- * 
+ *
  * @name  autotab_filter
  * @param  options    Can be a string, function or a list of options. If a string or
  *            function is passed, it will be assumed to be a format option.
@@ -165,10 +165,10 @@ $.fn.autotab_filter = function(options) {
 /**
  * Provides the autotabbing mechanism for the supplied element and passes
  * any formatting options to autotab_filter.
- * 
+ *
  * Refer to autotab_filter's description for a detailed explanation of
  * the options available.
- * 
+ *
  * @name  autotab
  * @param  options
  * @example  $('#phone').autotab({ format: 'number' });

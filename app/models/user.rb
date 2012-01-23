@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
       User.find!(self.account_id)
     end
   end
-  
+
   def is_main_user
     self_id == self.account_id
   end

@@ -50,7 +50,7 @@
         if (!opts.includeOther) $('.-', $letters).remove();
 
         $(':last', $letters).addClass('ln-last'); // allows for styling a case where last item needs right border set (because items before that only have top, left and bottom so that border between items isn't doubled)
-        
+
         if ($.cookie && (opts.cookieName != null)) {
           var cookieLetter = $.cookie(opts.cookieName);
           if (cookieLetter != null) opts.initLetter = cookieLetter;
@@ -196,7 +196,7 @@
       }
 
       // creates the HTML for the letter links
-      //  
+      //
       function createLettersHtml() {
         var html = [];
         for (var i = 1; i < letters.length; i++) {

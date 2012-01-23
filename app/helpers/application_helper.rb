@@ -31,8 +31,8 @@ module ApplicationHelper
   #
   # Returns asterisk is field is required
   #
-  def mark_required(object, attribute)  
-    '<span class="required">*</span>'.html_safe if object.class.validators_on(attribute).map(&:class).include? ActiveModel::Validations::PresenceValidator  
+  def mark_required(object, attribute)
+    '<span class="required">*</span>'.html_safe if object.class.validators_on(attribute).map(&:class).include? ActiveModel::Validations::PresenceValidator
   end
 
   #
@@ -41,7 +41,7 @@ module ApplicationHelper
   def line_break(text)
     text.gsub("\n", '<br/>').html_safe
   end
-  
+
   #
   # Datatables have variable column numbers because of authentication, we build the column definition json here
   #
