@@ -16,6 +16,7 @@ gem 'cancan'
 
 # BDD
 group :development, :test do
+  gem 'thin'
 # gem 'rspec-rails', '~> 2.8.0'
 # gem 'capybara',    '~> 1.1.2'
 # gem 'capybara-webkit' # Need to do this first: `brew install qt` - Install Homebrew first if you don't have that
