@@ -51,19 +51,4 @@ tmp/*
 -.save
 .com.apple.timemachine*
 
-#IDE ignores
-*.komodoproject
-.komodotools
-*.esproj
-*.sublime*
-
-# Netbeans project directory
-/nbproject/
-
-# Textmate project files
-/*.tmproj
-
-# vim artifacts
-**.swp
-
 .rvmrc
