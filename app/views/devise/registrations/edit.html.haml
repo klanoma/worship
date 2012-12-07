@@ -2,7 +2,7 @@
 
 .widget.first
   .head
-    %h5.iUser2 Volunteer Form
+    %h5.iUser2 Edit Profile
   = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'mainForm' }) do |f|
     .rowElem
       %p Enter account details in the form below. Asterisks (<span class="required">*</span>) indicate required fields.
@@ -57,9 +57,22 @@
 
 .widget
   .head
+    %h5.iPhotos Profile Picture
+  .mainForm
+    .rowElem
+      %p If you would like to customize your picture, please do so at #{ link_to 'Gravatar', 'http://www.gravata.com' }.
+    .rowElem
+      Profile Picture
+      %span
+      .formRight
+        = gravatar current_user.email, 100
+      .fix
+
+.widget
+  .head
     %h5.iAlert Delete my Account
   .mainForm
     .rowElem
-      %p Unhappy?
+      %p If, at any time, you would like to delete your account, press the red button. You will be missed.
     .rowElem.actions
       #{link_to "Delete my account and all of my data", registration_path(resource_name), :confirm => "Are you sure you want to delete your account? This action cannot be undone.", :method => :delete, :class => 'button redBtn'}
