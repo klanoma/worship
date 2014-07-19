@@ -6,8 +6,8 @@
  *
  * Date: March 13, 2011
  */
-jQuery.fn.autoGrow = function(){
-  return this.each(function(){
+jQuery.fn.autoGrow = function() {
+  return this.each(function() {
     // Variables
     var colsDefault = this.cols;
     var rowsDefault = this.rows;
@@ -21,8 +21,7 @@ jQuery.fn.autoGrow = function(){
       var linesCount = 0;
       var lines = obj.value.split('\n');
 
-      for (var i=lines.length-1; i>=0; --i)
-      {
+      for (var i = lines.length - 1; i >= 0; --i) {
         linesCount += Math.floor((lines[i].length / colsDefault) + 1);
       }
 
@@ -32,7 +31,7 @@ jQuery.fn.autoGrow = function(){
         obj.rows = rowsDefault;
     }
 
-    var characterWidth = function (obj){
+    var characterWidth = function(obj) {
       var characterWidth = 0;
       var temp1 = 0;
       var temp2 = 0;

@@ -103,12 +103,12 @@ $(function() {
   });
 
   var onSampleResized = function(e) {
-      var columns = $(e.currentTarget).find("th");
-      var msg = "columns widths: ";
-      columns.each(function() {
-        msg += $(this).width() + "px; ";
-      })
-    };
+    var columns = $(e.currentTarget).find("th");
+    var msg = "columns widths: ";
+    columns.each(function() {
+      msg += $(this).width() + "px; ";
+    })
+  };
 
   //===== Autogrowing textarea =====//
   $(".auto").autoGrow();
@@ -152,15 +152,15 @@ $(function() {
   //===== Placeholder for all browsers =====//
   $("input").each(
 
-  function() {
-    if ($(this).val() == "" && $(this).attr("placeholder") != "") {
-      $(this).val($(this).attr("placeholder"));
-      $(this).focus(function() {
-        if ($(this).val() == $(this).attr("placeholder")) $(this).val("");
-      });
-      $(this).blur(function() {
-        if ($(this).val() == "") $(this).val($(this).attr("placeholder"));
-      });
-    }
-  });
+    function() {
+      if ($(this).val() == "" && $(this).attr("placeholder") != "") {
+        $(this).val($(this).attr("placeholder"));
+        $(this).focus(function() {
+          if ($(this).val() == $(this).attr("placeholder")) $(this).val("");
+        });
+        $(this).blur(function() {
+          if ($(this).val() == "") $(this).val($(this).attr("placeholder"));
+        });
+      }
+    });
 });

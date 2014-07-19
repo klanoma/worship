@@ -1,26 +1,28 @@
 /**
-  *
-  * jQuery listnav plugin
-  * Copyright (c) 2009 iHwy, Inc.
-  * Author: Jack Killpatrick
-  *
-  * Version 2.1 (08/09/2009)
-  * Requires jQuery 1.3.2, jquery 1.2.6 or jquery 1.2.x plus the jquery dimensions plugin
-  *
-  * Visit http://www.ihwy.com/labs/jquery-listnav-plugin.aspx for more information.
-  *
-  * Dual licensed under the MIT and GPL licenses:
-  *   http://www.opensource.org/licenses/mit-license.php
-  *   http://www.gnu.org/licenses/gpl.html
-  *
-  */
+ *
+ * jQuery listnav plugin
+ * Copyright (c) 2009 iHwy, Inc.
+ * Author: Jack Killpatrick
+ *
+ * Version 2.1 (08/09/2009)
+ * Requires jQuery 1.3.2, jquery 1.2.6 or jquery 1.2.x plus the jquery dimensions plugin
+ *
+ * Visit http://www.ihwy.com/labs/jquery-listnav-plugin.aspx for more information.
+ *
+ * Dual licensed under the MIT and GPL licenses:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *   http://www.gnu.org/licenses/gpl.html
+ *
+ */
 
 (function($) {
   $.fn.listnav = function(options) {
     var opts = $.extend({}, $.fn.listnav.defaults, options);
     var letters = ['_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '-'];
     var firstClick = false;
-    opts.prefixes = $.map(opts.prefixes, function(n) { return n.toLowerCase(); });
+    opts.prefixes = $.map(opts.prefixes, function(n) {
+      return n.toLowerCase();
+    });
 
     return this.each(function() {
       var $wrapper, list, $list, $letters, $letterCount, id;
@@ -28,7 +30,11 @@
       $wrapper = $('#' + id + '-nav'); // user must abide by the convention: <ul id="myList"> for list and <div id="myList-nav"> for nav wrapper
       $list = $(this);
 
-      var counts = {}, allCount = 0, isAll = true, numCount = 0, prevLetter = '';
+      var counts = {},
+        allCount = 0,
+        isAll = true,
+        numCount = 0,
+        prevLetter = '';
 
       function init() {
         $wrapper.append(createLettersHtml());
@@ -61,8 +67,7 @@
         if (opts.initLetter != '') {
           firstClick = true;
           $('.' + opts.initLetter.toLowerCase(), $letters).slice(0, 1).click(); // click the initLetter if there was one
-        }
-        else {
+        } else {
           if (opts.includeAll) $('.all', $letters).addClass('ln-selected'); // showing all: we don't need to click this: the whole list is already loaded
           else { // ALL link is hidden, click the first letter that will display LI's
             for (var i = ((opts.includeNums) ? 0 : 1); i < letters.length; i++) {
@@ -79,7 +84,14 @@
       // positions the letter count div above the letter links (so we only have to do it once: after this we just change it's left position via mouseover)
       //
       function setLetterCountTop() {
-        $letterCount.css({ top: $('.a', $letters).slice(0, 1).offset({ margin: false, border: true }).top - $letterCount.outerHeight({ margin: true }) }); // note: don't set top based on '.all': it might not be visible
+        $letterCount.css({
+          top: $('.a', $letters).slice(0, 1).offset({
+            margin: false,
+            border: true
+          }).top - $letterCount.outerHeight({
+            margin: true
+          })
+        }); // note: don't set top based on '.all': it might not be visible
       }
 
       // adds a class to each LI that has text content inside of it (ie, inside an <a>, a <div>, nested DOM nodes, etc)
@@ -145,9 +157,14 @@
         if (opts.showCounts) {
           $('a', $letters).mouseover(function() {
             var left = $(this).position().left;
-            var width = ($(this).outerWidth({ margin: true }) - 1) + 'px'; // the -1 is to tweak the width a bit due to a seeming inaccuracy in jquery ui/dimensions outerWidth (same result in FF2 and IE6/7)
+            var width = ($(this).outerWidth({
+              margin: true
+            }) - 1) + 'px'; // the -1 is to tweak the width a bit due to a seeming inaccuracy in jquery ui/dimensions outerWidth (same result in FF2 and IE6/7)
             var count = getLetterCount(this);
-            $letterCount.css({ left: left, width: width }).text(count).show(); // set left position and width of letter count, set count text and show it
+            $letterCount.css({
+              left: left,
+              width: width
+            }).text(count).show(); // set left position and width of letter count, set count text and show it
           });
 
           // mouseout for each letter: hide the count
@@ -178,8 +195,7 @@
             if (count > 0) {
               $list.children('.ln-no-match').hide(); // in case it's showing
               $list.children('.ln-' + letter).show();
-            }
-            else $list.children('.ln-no-match').show();
+            } else $list.children('.ln-no-match').show();
 
             prevLetter = letter;
           }
