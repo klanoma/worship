@@ -1,5 +1,9 @@
-#Welcome to Worship Log
+# Welcome to Worship Log
 
-beta.worshiplog.com
+## Up and running
 
-app.worshiplog.com
+```
+gem install bundler
+bundle install
+thin -e development -l - start
+```

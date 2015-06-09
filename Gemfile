@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+# Ruby 1.9.3
+
 gem 'rake'
 gem 'rails', '3.1.3'
 group :assets do
@@ -16,13 +18,6 @@ gem 'jquery-rails'
 gem 'capistrano'
 gem 'cancan'
 
-# BDD
 group :development, :test do
   gem 'thin'
-# gem 'rspec-rails', '~> 2.8.0'
-# gem 'capybara',    '~> 1.1.2'
-# gem 'capybara-webkit'
-# gem 'launchy',     '~> 2.0.5'
-# gem 'cucumber-rails', '~> 1.2.1'
-# gem 'spork', '~> 0.9.0.rc9'
 end
