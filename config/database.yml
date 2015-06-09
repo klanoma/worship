@@ -5,8 +5,8 @@ development:
   database: worship_development
   pool: 5
   username: root
-  password:
-  host: localhost
+  password: root
+  socket: /Applications/MAMP/tmp/mysql/mysql.sock
 
 test:
   adapter: mysql2
@@ -15,7 +15,7 @@ test:
   database: worship_test
   pool: 5
   username: root
-  password:
+  password: root
   host: localhost
 
 production:
@@ -25,5 +25,5 @@ production:
   database: worship_production
   pool: 5
   username: worship
-  password: 3q9GS471nf97NTTBBN
+  password: <REDACTED>
   host: localhost
